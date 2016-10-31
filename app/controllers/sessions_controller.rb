@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  before_action :set_person
 
   def new
     @person = Person.new
@@ -8,8 +9,10 @@ class SessionsController < ApplicationController
     @person = Person.confirm(person_params)
     if @person
       login(@person)
-      redirect_to 'people' + @person.id
+      flash[:notice] = "Successfully logged in."
+      redirect_to '/people/' + @person.id.to_s
     else
+      flash[:error] = "User Name and Password do not match."
       redirect_to login_path
     end
   end
@@ -20,9 +23,12 @@ class SessionsController < ApplicationController
   end
 
   private
+  def set_person
+    @person = Person.find_by(params[:id])
+  end
 
   def person_params
-    params.require(:person).permit(:first_name, :last_name, :phone_number, :city, :email, :password)
+    params.require(:person).permit(:email, :password)
   end
 
 end
