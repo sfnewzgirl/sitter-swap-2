@@ -7,4 +7,5 @@ class Person < ApplicationRecord
     @person = Person.find_by({email: params[:email]})
     @person ? @person.authenticate(params[:password]) : false
   end
+
 end
