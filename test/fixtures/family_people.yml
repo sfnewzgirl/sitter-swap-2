@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  role: 1
+  family: one
+  person: one
+
+two:
+  role: 1
+  family: two
+  person: two

@@ -1,0 +1,36 @@
+<h1>Show Person</h1>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @person.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @person.last_name %>
+</p>
+
+<p>
+  <strong>Phone number:</strong>
+  <%= @person.phone_number %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @person.city %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @person.email %>
+</p>
+
+<p>
+  <strong>Password digest:</strong>
+  <%= @person.password_digest %>
+</p>
+
+<%= link_to 'Edit', edit_person_path(@person) %> |
+<%= link_to 'Back', people_path %>

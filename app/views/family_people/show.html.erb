@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Role:</strong>
+  <%= @family_person.role %>
+</p>
+
+<p>
+  <strong>Family:</strong>
+  <%= @family_person.family %>
+</p>
+
+<p>
+  <strong>Person:</strong>
+  <%= @family_person.person %>
+</p>
+
+<%= link_to 'Edit', edit_family_person_path(@family_person) %> |
+<%= link_to 'Back', family_people_path %>
