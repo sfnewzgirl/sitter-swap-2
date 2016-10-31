@@ -1,6 +1,66 @@
-<h1>Editing Person</h1>
+<h1>Edit Your Profile</h1>
 
-<%= render 'form', person: @person %>
+<%= form_for current_person, url: '/people/' + current_person.id.to_s, method: 'patch' do |f| %>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="field">
+          <%= f.label :first_name %>
+          <%= f.text_field :first_name %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="field">
+          <%= f.label :last_name %>
+          <%= f.text_field :last_name %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="field">
+          <%= f.label :phone_number %>
+          <%= f.text_field :phone_number %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="field">
+          <%= f.label :city %>
+          <%= f.text_field :city %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="field">
+          <%= f.label :email %>
+          <%= f.text_field :email %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="actions">
+          <%= f.submit %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
 
-<%= link_to 'Show', @person %> |
-<%= link_to 'Back', people_path %>
+<%= link_to 'Show', current_person %> |
+<%= link_to 'Back', person_path(current_person) %>

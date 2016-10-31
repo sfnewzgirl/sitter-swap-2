@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   post '/sessions', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy', as: "logout"
 
-  # resources :family_people
+  resources :family_people
   resources :families
   resources :people
 end

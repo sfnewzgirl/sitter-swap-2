@@ -17,32 +17,28 @@ class PeopleController < ApplicationController
 
   def edit
     @person = Person.find_by(params[:id])
+    @families
   end
 
   def create
     @person = Person.new(person_params)
 
-    respond_to do |format|
       if @person.save
-        format.html { redirect_to @person, notice: 'Your profile was successfully created.' }
-        format.json { render :show, status: :created, location: @person }
+        flash[:notice] = 'Your profile was successfully created.'
+        redirect_to @person
       else
-        format.html { render :new }
-        format.json { render json: @person.errors, status: :unprocessable_entity }
-      end
+        flash[:notice] = 'Something went wrong. Please try again.'
+        redirect_to new_person_path
     end
   end
 
   def update
     @person = Person.find_by(params[:id])
-    respond_to do |format|
-      if @person.update(person_params)
-        format.html { redirect_to @person, notice: 'Your profile was successfully updated.' }
-        format.json { render :show, status: :ok, location: @person }
-      else
-        format.html { render :edit }
-        format.json { render json: @person.errors, status: :unprocessable_entity }
-      end
+    if @person.update(person_params)
+    redirect_to person_path(@person), notice: 'Your profile was successfully updated.'
+    else
+      format.html { render :edit }
+      format.json { render json: @person.errors, status: :unprocessable_entity }
     end
   end
 
