@@ -13,7 +13,7 @@ class PeopleController < ApplicationController
   end
 
   def edit
-    @person = Person.find_by(person_id: params[:person_id])
+    @person = Person.find_by(params[:id])
   end
 
   def create
@@ -31,7 +31,7 @@ class PeopleController < ApplicationController
   end
 
   def update
-    @person = Person.find_by(person_id: params[:user_id])
+    @person = Person.find_by(params[:id])
     respond_to do |format|
       if @person.update(person_params)
         format.html { redirect_to @person, notice: 'Your profile was successfully updated.' }
@@ -54,7 +54,7 @@ class PeopleController < ApplicationController
   private
 
     def set_person
-      @person = Person.find_by(person_id: params[:person_id])
+      @person = Person.find_by(params[:id])
     end
 
     def person_params
