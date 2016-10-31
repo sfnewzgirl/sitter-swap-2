@@ -1,7 +1,21 @@
-<h1>Home Page</h1>
+<h1>SitterSwap</h1>
 
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Log In', login_path %>
-<%= link_to 'Join', new_person_path %>
-<%= link_to 'About', about_path %>
+<div class="about-image">
+  <%= image_tag("http://i.imgur.com/XmsjQeP.jpg?1", class: "about-image", alt: "sitter-swap-connects-families") %>
+</div>
+
+<h2>How It Works</h2>
+
+<ul>
+  <li>Connecting Families</li>
+  <li>Trusted Child Care</li>
+</ul>
+
+<h2>Find out more: </h2>
+  <%= link_to 'About', about_path %>
+<h2>Join SitterSwap: </h2>
+  <%= link_to 'Join', new_person_path %>
+<h2>Already a member? Log in: </h2>
+  <%= link_to 'Log In', login_path %>
