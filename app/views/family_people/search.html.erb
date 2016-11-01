@@ -11,9 +11,11 @@
 
 <p>Search Results</p>
 <ul>
-  <%= @results.each do |result| %>
+  <% @results.each do |result| %>
     <li>
       <%= link_to '/families/' + result.id.to_s %>
     </li>
   <% end %>
 </ul>
+
+<h1>end of erb </h1>
