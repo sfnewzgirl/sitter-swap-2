@@ -88,10 +88,6 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-lg-6">
-          <div class="profile-image">
-            <%= image_tag("http://i.imgur.com/vZpEGd7.jpg", class: "profile-image", alt: "sitter-swap-connects-families") %>
-          </div>
-
           <p>
             <strong>First name:</strong>
             <%= current_person.first_name %>
@@ -118,4 +114,8 @@
           </p>
 
           <%= link_to 'Edit', edit_person_path(current_person) %>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>

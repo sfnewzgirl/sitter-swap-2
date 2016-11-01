@@ -1,8 +1,7 @@
-<%= form_for(family_person) do |f| %>
+  <%= form_for @family_person |f| do %>
   <% if family_person.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(family_person.errors.count, "error") %> prohibited this family_person from being saved:</h2>
-
+      <h2><%= pluralize(family_person.errors.count, "error") %> Save error: </h2>
       <ul>
       <% family_person.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -26,31 +25,44 @@
     </div>
   </div>
 
-  <!-- needs to be radio button -->
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-6">
         <div class="field">
-          <%= f.label :role %>
-          <%= f.number_field :role %>
+          <%= f.label :phone_number %>
+          <%= f.text_field :phone_number %>
+        </div>
+        <div class="field">
+          <%= f.label :city %>
+          <%= f.text_field :city %>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- needs to be hidden field -->
-  <div class="field">
-    <%= f.label :family_id %>
-    <%= f.text_field :family_id %>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="field">
+          <%= f.label :email %>
+          <%= f.text_field :email %>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <!-- needs to create person -->
-  <div class="field">
-    <%= f.label :person_id %>
-    <%= f.text_field :person_id %>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="field">
+          <%= f.label :password %>
+          <%= f.text_field :password %>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= button_to "Save Sitter", family_people_create_path, params: {role: "sitters", family_id: result.id}, form_class: "new-thing" %>
   </div>
 <% end %>
