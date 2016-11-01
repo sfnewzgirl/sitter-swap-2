@@ -1,21 +1,55 @@
-<h1>SitterSwap</h1>
+<div class="container-fluid">
+  <div class="row welcome-header">
+    <div class="col-lg-6 col-sm-12" id="sitter-swap-logo">
+      <h1>SitterSwap</h1>
+    </div>
+    <div class="col-lg-6 col-sm-12" id="welcome-header-links">
+      <%= link_to 'About', about_path %>
+      <%= link_to 'Join', new_person_path %>
+      <%= link_to 'Log In', login_path %>
+    </div>
+  </div>
+</div>
 
 <p id="notice"><%= notice %></p>
 
-<div class="about-image">
-  <%= image_tag("http://i.imgur.com/XmsjQeP.jpg?1", class: "about-image", alt: "sitter-swap-connects-families") %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="about-image">
+        <%= image_tag("http://i.imgur.com/XmsjQeP.jpg?2", class: "about-image", alt: "sitter-swap-connects-families") %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6 md-offset-4">
+      <h2>How It Works</h2>
+    </div>
+  </div>
 </div>
 
-<h2>How It Works</h2>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6 md-offset-4">
+      <ul>
+        <li>Connecting Families</li>
+        <li>Trusted Child Care</li>
+      </ul>
+    </div>
+  </div>
+</div>
 
-<ul>
-  <li>Connecting Families</li>
-  <li>Trusted Child Care</li>
-</ul>
-
-<h2>Find out more: </h2>
-  <%= link_to 'About', about_path %>
-<h2>Join SitterSwap: </h2>
-  <%= link_to 'Join', new_person_path %>
-<h2>Already a member? Log in: </h2>
-  <%= link_to 'Log In', login_path %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6 md-offset-4">
+      <h2>Find out more: </h2>
+        <%= link_to 'About', about_path %>
+      <h2>Join SitterSwap: </h2>
+        <%= link_to 'Join', new_person_path %>
+      <h2>Already a member? Log in: </h2>
+        <%= link_to 'Log In', login_path %>
+    </div>
+  </div>
+</div>

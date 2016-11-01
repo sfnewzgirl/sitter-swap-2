@@ -15,3 +15,44 @@
  *= require_tree .
  *= require_self
  */
+
+$limegreen: #83b130;
+$darkgreen: #272d2c;
+$forestgreen: #323f22;
+$blue: #7293a9;
+$beige: #d4c3c3;
+
+body {
+  font-family: 'Slabo 27px', serif;
+}
+
+#sitter-swap-logo {
+  color: $darkgreen;
+  text-shadow: 1px 1px 2px $forestgreen;
+  h1 {
+    font-size: 4em;
+  }
+}
+
+#welcome-header-links {
+  a {
+    float: right;
+  	background-color: $limegreen;
+    color: white;
+    display: inline-block;
+    margin: 1em;
+    padding: 1em;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+  }
+}
+
+.clearfix:after {
+     visibility: hidden;
+     display: block;
+     font-size: 0;
+     content: " ";
+     clear: both;
+     height: 0;
+}
