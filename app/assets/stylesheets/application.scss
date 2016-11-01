@@ -45,6 +45,13 @@ body {
     font-size: 2em;
     font-weight: bold;
   }
+  p {
+    font-size: 1.5em;
+    margin: 1.5em;
+  }
+  li {
+    margin: 1.5em;
+  }
 }
 
 #sitter-swap-logo {
@@ -55,11 +62,6 @@ body {
     padding-left: .5em;
   }
 }
-
-// .sitter-swap-tagline {
-//   margin-left: auto;
-//   margin-right: auto;
-//  }
 
 #welcome-header-links, .log-out-button {
   a {
