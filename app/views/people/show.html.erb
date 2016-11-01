@@ -10,10 +10,14 @@
     </div>
   </div>
 </div>
-
-<h1>Welcome <%= current_person.first_name %> <%= current_person.last_name %></h1>
-<p id="notice"><%= notice %></p>
-
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+      <center><h1>Welcome <%= current_person.first_name %> <%= current_person.last_name %></h1></center>
+      <p id="notice"><%= notice %></p>
+    </div>
+  </div>
+</div>
 <section id="my-family-section">
   <div class="clearfix">
     <div class="container-fluid">
@@ -28,8 +32,7 @@
           <!-- TODO needs to be only caregivers role -->
           <ul class=>
             <% current_person.families.each do |family| %>
-              <li>
-                <%= link_to family.family_name, '/families/' + family.id.to_s %>
+              <li><strong>Family Name: </strong><%= link_to family.family_name, '/families/' + family.id.to_s %><br> <strong>Relationship: </strong><%= family.family_people %>
               </li>
             <% end %>
           </ul>
