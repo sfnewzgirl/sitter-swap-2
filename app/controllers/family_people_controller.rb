@@ -62,8 +62,7 @@ class FamilyPeopleController < ApplicationController
   end
 
   def search
-    @q = "%#{params[:query]}%"
-    @user_input = @q
+    @user_input = params[:q]
     @results = Family.all.select{|fam| fam.family_name == @user_input}
   end
 
