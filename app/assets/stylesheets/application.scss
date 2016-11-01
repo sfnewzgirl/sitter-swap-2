@@ -22,8 +22,27 @@ $forestgreen: #323f22;
 $blue: #7293a9;
 $beige: #d4c3c3;
 
+@mixin blue-box-ul-li {
+  li {
+    background-color: $blue;
+    color: white;
+    display: inline-block;
+    margin: 1em;
+    padding: 1em;
+    font-size: 1.25em;
+    font-weight: bold;
+    border-radius: .5em;
+  }
+}
+
 body {
   font-family: 'Slabo 27px', serif;
+  h2 {
+    background-color: $blue;
+    color: white;
+    padding: 1em;
+    margin: 1em;
+  }
 }
 
 #sitter-swap-logo {
@@ -34,6 +53,11 @@ body {
     padding-left: .5em;
   }
 }
+
+// .sitter-swap-tagline {
+//   margin-left: auto;
+//   margin-right: auto;
+//  }
 
 #welcome-header-links, .log-out-button {
   a {
@@ -62,20 +86,7 @@ body {
 }
 
 .about-image {
-  margin-left: auto;
-  margin-right: auto;
   max-width: 100%;
 }
 
-.family-person-directions {
-  li {
-    background-color: $blue;
-    color: white;
-    display: inline-block;
-    margin: 1em;
-    padding: 1em;
-    font-size: 1.25em;
-    font-weight: bold;
-    border-radius: .5em;
-  }
-}
+.family-person-directions { @include blue-box-ul-li; }
