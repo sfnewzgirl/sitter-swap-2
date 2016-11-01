@@ -3,7 +3,7 @@
 <p>Search by Family Name</p>
 <small>For example, Doe for John Doe</small>
 
-<%= form_tag("/families", method: "get") do %>
+<%= form_tag("/family_people/search", method: "get") do %>
   <%= label_tag(:q, "Search for a family") %>
   <%= text_field_tag(:q) %>
   <%= submit_tag("Search") %>
