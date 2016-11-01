@@ -65,3 +65,16 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
+
+.person-directions {
+  li {
+    background-color: $blue;
+    color: white;
+    display: inline-block;
+    margin: 1em;
+    padding: 1em;
+    font-size: 1.25em;
+    font-weight: bold;
+    border-radius: .5em;
+  }
+}
