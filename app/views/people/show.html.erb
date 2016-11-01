@@ -32,8 +32,7 @@
           <!-- TODO needs to be only caregivers role -->
           <ul class=>
             <% current_person.families.each do |family| %>
-              <li><strong>Family Name: </strong><%= link_to family.family_name, '/families/' + family.id.to_s %><br> <strong>Relationship: </strong><%= family.family_people %>
-              </li>
+              <li><strong>Family Name: </strong><%= link_to family.family_name, '/families/' + family.id.to_s %><br> </li>
             <% end %>
           </ul>
         </div>

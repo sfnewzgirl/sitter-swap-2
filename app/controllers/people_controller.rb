@@ -15,7 +15,6 @@ class PeopleController < ApplicationController
 
   def edit
     @person = Person.find_by(params[:id])
-    @families
   end
 
   def create

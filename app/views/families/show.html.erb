@@ -7,5 +7,17 @@
   <%= @family.family_name %>
 </p>
 
+<div class="container-fldui">
+  <div class="row">
+    <div class="col-sm-12">
+      <ul>
+        <% @family.people.each do |person| %>
+          <li><strong>Name: </strong><%= person.first_name + " " + person.last_name %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+
 <%= link_to 'Edit', edit_family_path(@family) %> |
 <%= link_to 'Back', families_path %>
