@@ -11,7 +11,7 @@
 
 <p>Search Results</p>
 <ul>
-  <%= Family.all.select{|fam| fam.family_name == @user_input} %>
+  <%= @results.each do |result| %>
     <li>
       <%= link_to '/families/' + fam.id.to_s %>
     </li>
