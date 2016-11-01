@@ -66,7 +66,14 @@ body {
   margin-right: auto;
 }
 
-.person-directions {
+#my-family-section {
+  float: left;
+}
+
+#family-friends-section {
+  float: right;
+}
+.family-person-directions {
   li {
     background-color: $blue;
     color: white;

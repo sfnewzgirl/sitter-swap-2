@@ -4,36 +4,75 @@
   <%= link_to 'Log Out', logout_path(@person), class: "btn btn-default" %>
 </div>
 
-<div id="my-family-section">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-lg-6">
-        <h2>My Family</h2>
+<section id="my-family-section">
+  <div class="clearfix">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-6">
+          <h2>My Family</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4">
+          <!-- List of families -->
+          <!-- TODO needs to be only caregivers role -->
+          <ul class=>
+            <% current_person.families.each do |family| %>
+              <li>
+                <%= link_to family.family_name, '/families/' + family.id.to_s %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+      <h3>Don't see your family listed?</h3>
+      <div class="row">
+        <div class="col-lg-4 family-person-directions">
+          <ul>
+            <!-- create new family -->
+            <li><strong>FIRST:</strong> Create a family profile. Click here: <%= link_to 'New Family', new_family_path %></li>
+            <!-- link to a family -->
+            <li><strong>NEXT:</strong> Select the family as yours. Click here: <%= link_to 'Select Family', family_people_search_path %></li>
+          </ul>
+        </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-lg-4">
-        <!-- List of families a person has a relationship with -->
-        <ul class=>
-          <% current_person.families.each do |family| %>
-            <li>
-              <%= link_to family.family_name, '/families/' + family.id.to_s %>
-            </li>
-          <% end %>
-        </ul>
-      </div>
-    </div>
-    <h3>Don't see a family listed?</h3>
-    <div class="row">
-      <div class="col-lg-4 person-directions">
-        <ul>
-          <!-- create new family -->
-          <li><strong>FIRST:</strong> Make sure you created a family profile. You can do that here: <%= link_to 'New Family', new_family_path %></li>
-          <!-- link to a new family -->
-          <li><strong>NEXT:</strong> You still need to select the family as yours. You can do that here: <%= link_to 'Select Family', family_people_search_path %></li>
-
+  </div>
 </section>
-
+<section id="family-friends-section">
+  <div class="clearfix">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-6">
+          <h2>Family Friends</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4">
+          <!-- List of friends -->
+          <!-- TODO needs to be only caregivers role -->
+          <ul class=>
+            <% current_person.families.each do |family| %>
+              <li>
+                <%= link_to family.family_name, '/families/' + family.id.to_s %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+      <h3>Want to connect to other families?</h3>
+      <div class="row">
+        <div class="col-lg-4 family-person-directions">
+          <ul>
+            <li><strong>FIRST:</strong> Make sure you know the family name (usually the surname) your friend signed up with on SitterSwap.</li>
+            <!-- link to a family -->
+            <li><strong>NEXT:</strong> Select the family as your <i>friend</i> on our search page. You can do that here: <%= link_to 'Find Friend', family_people_search_path %></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 <section id="my-profile-section">
   <div id="my-family-section">
     <div class="container-fluid">

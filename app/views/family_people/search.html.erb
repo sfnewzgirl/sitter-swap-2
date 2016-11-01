@@ -10,13 +10,13 @@
 <% end %>
 
 <p>Is this the family you were looking for?</p>
+  <!-- TODO if results else hide -->
 <ul>
   <% @results.each do |result| %>
     <li>
       <%= link_to result.family_name, '/families/' + result.id.to_s, role: "caregivers" %>
       <div class="actions">
         <%= button_to "Confirm Family", family_people_create_path, params: {role: "caregivers", family_id: result.id}, form_class: "new-thing" %>
-
       </div>
     </li>
   <% end %>
