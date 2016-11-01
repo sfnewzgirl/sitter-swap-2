@@ -55,12 +55,11 @@ class FamilyPeopleController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    
     def set_family_person
       @family_person = FamilyPerson.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def family_person_params
       params.require(:family_person).permit(:role, :family_id, :person_id)
     end

@@ -1,14 +1,10 @@
 class FamiliesController < ApplicationController
   before_action :set_family, only: [:show, :edit, :update, :destroy]
 
-  # GET /families
-  # GET /families.json
   def index
     @families = Family.all
   end
 
-  # GET /families/1
-  # GET /families/1.json
   def show
     family_id = Family.find_by_id(params[:id])
     @family_people = Person.find_by(params[:family_id])

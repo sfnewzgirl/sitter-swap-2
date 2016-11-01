@@ -7,6 +7,8 @@ class PeopleController < ApplicationController
   def show
     current_person = Person.find_by_id(:id)
     @person = Person.find_by_id(:id)
+    person_id = Person.find_by_id(params[:id])
+    @family = FamilyPerson.find_by(params[:person_id]))
   end
 
   def new

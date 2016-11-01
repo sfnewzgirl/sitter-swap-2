@@ -1,3 +1,23 @@
 // Place all the styles related to the Family_People controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$limegreen: #83b130;
+$darkgreen: #272d2c;
+$forestgreen: #323f22;
+$blue: #7293a9;
+$beige: #d4c3c3;
+
+@mixin blue-box-ul-li {
+  li {
+    background-color: $blue;
+    color: white;
+    display: inline-block;
+    margin: 1em;
+    padding: .5em;
+    font-size: 1.25em;
+    font-weight: bold;
+    border-radius: .5em;
+  }
+}
+
+.search-page-header { @include blue-box-ul-li; }

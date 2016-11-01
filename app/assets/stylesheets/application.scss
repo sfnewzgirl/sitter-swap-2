@@ -33,6 +33,16 @@ $beige: #d4c3c3;
     font-weight: bold;
     border-radius: .5em;
   }
+  div {
+    background-color: $blue;
+    color: white;
+    display: inline-block;
+    margin: 1em;
+    padding: .5em;
+    font-size: 1.25em;
+    font-weight: bold;
+    border-radius: .5em;
+  }
 }
 
 @mixin grey-box {
@@ -110,4 +120,4 @@ body {
 }
 
 .family-person-directions { @include blue-box-ul-li; }
-// .search-page-header { @include blue-box-ul-li; }
+.search-page-header { @include blue-box-ul-li; }
