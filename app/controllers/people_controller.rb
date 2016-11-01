@@ -7,9 +7,6 @@ class PeopleController < ApplicationController
   def show
     current_person = Person.find_by_id(:id)
     @person = Person.find_by_id(:id)
-    # if !current_person
-    #   redirect_to root_path
-    # end
   end
 
   def new
@@ -26,9 +23,11 @@ class PeopleController < ApplicationController
 
       if @person.save
         flash[:notice] = 'Your profile was successfully created.'
+        flash[:color] = "success"
         redirect_to @person
       else
         flash[:notice] = 'Something went wrong. Please try again.'
+        flash[:color] = "success"
         redirect_to new_person_path
     end
   end

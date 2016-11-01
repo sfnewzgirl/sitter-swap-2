@@ -12,25 +12,23 @@
 </div>
 
 <div class="container-fluid">
-  <div class="row">
+  <div class="row search-page-header">
     <div class="col-sm-12">
-      <h1>Search Page</h1>
-      <p>Find the families &amp; people that make SitterSwap so great!</p>
+      <center>
+        <h1>Search Page</h1>
+        <p>Find the families &amp; people that make SitterSwap so great!</p>
+      </center>
     </div>
   </div>
 </div>
 <!-- search and results to select a caregivers family -->
-<div class="container-fluid">
   <div class="row">
-    <div class="col-lg-6">
-      <h2>Select Your Family</h2>
-      <small>Search by your <i>family name</i>, usually the surname. For example, Doe for John Doe.</small>
+    <div class="col-sm-12">
+      <p>Search by the <i>family name</i>, usually the surname. For example, Doe for John Doe.</p>
     </div>
   </div>
-</div>
-<div class="container-fluid">
   <div class="row">
-    <div class="col-lg-4">
+    <div class="col-sm-12" id="search-bar">
       <%= form_tag("/family_people/search", method: "get") do %>
         <%= label_tag(:q, "Search for a family") %>
         <%= text_field_tag(:q) %>
@@ -38,18 +36,19 @@
       <% end %>
     </div>
   </div>
-</div>
-<div class="container-fluid">
   <div class="row">
-    <div class="col-lg-4">
-      <p>Did you find your family? If so, click <i>confirm family</i>.</p>
+    <div class="col-sm-12">
+      <p>What's your relationship to this family?</p>
         <!-- TODO if results else hide -->
       <ul>
         <% @results.each do |result| %>
           <li>
             <%= link_to result.family_name, '/families/' + result.id.to_s, role: "caregivers" %>
             <div class="actions">
-              <%= button_to "Confirm Family", family_people_create_path, params: {role: "caregivers", family_id: result.id}, form_class: "new-thing" %>
+              <%= button_to "Parent", family_people_create_path, params: {role: "caregivers", family_id: result.id}, form_class: "new-thing" %>
+            </div>
+            <div class="actions">
+              <%= button_to "Friend", family_people_create_path, params: {role: "friends", family_id: result.id}, form_class: "new-thing" %>
             </div>
           </li>
         <% end %>
