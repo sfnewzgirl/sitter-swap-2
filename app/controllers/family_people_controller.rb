@@ -79,8 +79,5 @@ class FamilyPeopleController < ApplicationController
       params.permit(:role, :family_id)
     end
 
-    def create_sitter_params
-      sitter_info = params.require(:person).permit(:first_name, :last_name, :phone_number, :city, :email, :password)
-      create_sitter_params = sitter_info.merge({:family_id, :person_id, :role})
-    end
+    
 end

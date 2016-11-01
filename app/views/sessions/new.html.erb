@@ -11,27 +11,26 @@
   </div>
 </div>
 
-<h1>Log In</h1>
-
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-6 col-sm-12">
+      <h1>Log In</h1>
       <%= form_for @person, url: '/sessions' do |f| %>
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-6 col-sm-12">
             <p>Email</p>
             <%= f.email_field :email %>
           </div>
         </div>
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-6 col-sm-12">
             <p>Password</p>
             <%= f.password_field :password %>
           </div>
         </div>
         <div class="row">
-          <div class="col-md-6">
-            <%= f.submit 'Log In' %>
+          <div class="col-md-6 col-sm-12">
+            <%= f.submit 'Log In', class: "btn btn-default" %>
           </div>
         </div>
       <% end %>

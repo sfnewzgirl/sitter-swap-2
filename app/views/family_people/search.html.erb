@@ -13,7 +13,7 @@
 
 <div class="container-fluid">
   <div class="row">
-    <div class="col-lg-6">
+    <div class="col-sm-12">
       <h1>Search Page</h1>
       <p>Find the families &amp; people that make SitterSwap so great!</p>
     </div>
@@ -50,53 +50,6 @@
             <%= link_to result.family_name, '/families/' + result.id.to_s, role: "caregivers" %>
             <div class="actions">
               <%= button_to "Confirm Family", family_people_create_path, params: {role: "caregivers", family_id: result.id}, form_class: "new-thing" %>
-            </div>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-  </div>
-</div>
-<!-- search and results to select a friends family -->
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-lg-6">
-      <h2>Find Your Friends</h2>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-lg-4 family-person-directions">
-      <p>Make sure you know the <i>family name</i> your friend signed up with!</p>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-lg-6">
-      <small>Search by your friend's <i>family name</i>, usually the surname. For example, Doe for John Doe.</small>
-    </div>
-  </div>
-</div>
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-lg-4">
-      <%= form_tag("/family_people/search", method: "get") do %>
-        <%= label_tag(:q, "Search for a family") %>
-        <%= text_field_tag(:q) %>
-        <%= submit_tag("Search") %>
-      <% end %>
-    </div>
-  </div>
-</div>
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-lg-4">
-      <p>Is this the family friend you were looking for?</p>
-        <!-- TODO if results else hide -->
-      <ul>
-        <% @results.each do |result| %>
-          <li>
-            <%= link_to result.family_name, '/families/' + result.id.to_s, role: "friends" %>
-            <div class="actions">
-              <%= button_to "Confirm Friend", family_people_create_path, params: {role: "friends", family_id: result.id}, form_class: "new-thing" %>
             </div>
           </li>
         <% end %>
