@@ -1,31 +1,3 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Family People</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Role</th>
-      <th>Family</th>
-      <th>Person</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @family_people.each do |family_person| %>
-      <tr>
-        <td><%= family_person.role %></td>
-        <td><%= family_person.family %></td>
-        <td><%= family_person.person %></td>
-        <td><%= link_to 'Show', family_person %></td>
-        <td><%= link_to 'Edit', edit_family_person_path(family_person) %></td>
-        <td><%= link_to 'Destroy', family_person, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Family Person', new_family_person_path %>
+<h2>Family People Index</h2>

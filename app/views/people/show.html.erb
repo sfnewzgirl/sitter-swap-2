@@ -1,22 +1,18 @@
 <h1>Welcome <%= current_person.first_name %> <%= current_person.last_name %></h1>
 
-<h2>Your Family</h2>
+<!-- create new family -->
+<div class="new-family-button">
+  <h3>Make a family profile</h3> <%= link_to 'New Family', new_family_path %>
+</div>
 
-
-  <div class="add-family-button">
-    <%= link_to 'Create A Family Profile', new_family_path %>
-  </div>
-
-  <div class="link-your-family-button">
-    <%= link_to 'Link Your Family', families_path(@person) %>
-  </div>
-
-  <div class="connect-family-button">
-    <%= link_to 'Connect With Friends', families_path %>
-  </div>
+<h3>My Family</h3>
+<p>Select your family so you can see it here!</p>
+<div class="select-family-button">
+  <%= link_to 'Select Family', family_people_search_path %>
+</div>
 
 <div class="log-out-button">
-  <%= link_to 'Log Out', logout_path(@person) %>
+  <%= link_to 'Log Out', logout_path(@person), class: "btn btn-default" %>
 </div>
 
 <p id="notice"><%= notice %></p>

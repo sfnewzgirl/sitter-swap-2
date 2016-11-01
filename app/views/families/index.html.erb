@@ -2,11 +2,6 @@
 
 <h1>Families</h1>
 
-<%= form_tag("/families", method: "get") do %>
-  <%= label_tag(:q, "Search for a family") %>
-  <%= text_field_tag(:q) %>
-  <%= submit_tag("Search") %>
-<% end %>
 <table>
   <thead>
     <tr>
@@ -16,6 +11,7 @@
   </thead>
 
   <tbody>
+
     <% @families.each do |family| %>
       <tr>
         <td><%= family.family_name %></td>

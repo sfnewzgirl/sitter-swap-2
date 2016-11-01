@@ -1,0 +1,19 @@
+<h1>Select Your Family</h1>
+
+<p>Search by Family Name</p>
+<small>For example, Doe for John Doe</small>
+
+<%= form_tag("/families", method: "get") do %>
+  <%= label_tag(:q, "Search for a family") %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
+<p>Search Results</p>
+<ul>
+  <%= Family.all.select{|fam| fam.family_name == @user_input} %>
+    <li>
+      <%= link_to '/families/' + fam.id.to_s %>
+    </li>
+  <% end %>
+</ul>

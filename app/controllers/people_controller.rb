@@ -5,10 +5,11 @@ class PeopleController < ApplicationController
   end
 
   def show
+    current_person = Person.find_by_id(:id)
     @person = Person.find_by_id(:id)
-    if !current_person
-      redirect_to root_path
-    end
+    # if !current_person
+    #   redirect_to root_path
+    # end
   end
 
   def new

@@ -11,16 +11,40 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :role %>
-    <%= f.number_field :role %>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="field">
+          <%= f.label :first_name %>
+          <%= f.text_field :first_name %>
+        </div>
+        <div class="field">
+          <%= f.label :last_name %>
+          <%= f.text_field :last_name %>
+        </div>
+      </div>
+    </div>
   </div>
 
+  <!-- needs to be radio button -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="field">
+          <%= f.label :role %>
+          <%= f.number_field :role %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- needs to be hidden field -->
   <div class="field">
     <%= f.label :family_id %>
     <%= f.text_field :family_id %>
   </div>
 
+  <!-- needs to create person -->
   <div class="field">
     <%= f.label :person_id %>
     <%= f.text_field :person_id %>
