@@ -1,8 +1,18 @@
+<div class="container-fluid">
+  <div class="row welcome-header clearfix">
+    <div class="col-lg-6 col-sm-12" id="sitter-swap-logo">
+      <h1>SitterSwap</h1>
+    </div>
+    <div class="col-lg-6 col-sm-12" id="welcome-header-links">
+      <!-- TODO add links to profile sections -->
+      <%= link_to 'Log Out', logout_path %>
+      <%= link_to 'About', about_path %>
+    </div>
+  </div>
+</div>
+
 <h1>Welcome <%= current_person.first_name %> <%= current_person.last_name %></h1>
 <p id="notice"><%= notice %></p>
-<div class="log-out-button">
-  <%= link_to 'Log Out', logout_path(@person), class: "btn btn-default" %>
-</div>
 
 <section id="my-family-section">
   <div class="clearfix">
