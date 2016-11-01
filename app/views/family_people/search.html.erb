@@ -13,9 +13,10 @@
 <ul>
   <% @results.each do |result| %>
     <li>
-      <%= link_to '/families/' + result.id.to_s %>
+      <%= link_to result.family_name, '/families/' + result.id.to_s %>
+      <!-- button that says it's my family
+      post  -->
+      <!-- pass in family id  -->
     </li>
   <% end %>
 </ul>
-
-<h1>end of erb </h1>
