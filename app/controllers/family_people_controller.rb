@@ -1,42 +1,34 @@
 class FamilyPeopleController < ApplicationController
 
-  # GET /family_people
-  # GET /family_people.json
   def index
     @family_people = FamilyPerson.all
   end
 
-  # GET /family_people/1
-  # GET /family_people/1.json
   def show
   end
 
-  # GET /family_people/new
   def new
     @family_person = FamilyPerson.new
   end
 
-  # GET /family_people/1/edit
   def edit
   end
 
-  # POST /family_people
-  # POST /family_people.json
   def create
     @family_person = FamilyPerson.new(family_person_create_params)
     @family_person.person_id = current_person.id
 
       if @family_person.save
         flash[:notice] = "Your family has been confirmed."
+        flash[:color] = "success"
         redirect_to '/people/' + current_person.id.to_s
       else
         flash[:error] = "Something went wrong. Please try again."
-        redirect_to new_family_person_path
+        flash[:color] = "failure"
+        redirect_to family_people_search_path
       end
   end
 
-  # PATCH/PUT /family_people/1
-  # PATCH/PUT /family_people/1.json
   def update
     respond_to do |format|
       if @family_person.update(family_person_params)
@@ -49,8 +41,6 @@ class FamilyPeopleController < ApplicationController
     end
   end
 
-  # DELETE /family_people/1
-  # DELETE /family_people/1.json
   def destroy
     @family_person.destroy
     respond_to do |format|
@@ -79,5 +69,5 @@ class FamilyPeopleController < ApplicationController
       params.permit(:role, :family_id)
     end
 
-    
+
 end
