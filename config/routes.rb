@@ -16,6 +16,6 @@ Rails.application.routes.draw do
 
   #create new family person aka sitter
   get '/family_people/new', to: 'family_people#new', as: 'new_family_person'
-  post '/family_people', to: 'family_people#create'
+  post '/family_people', to: 'family_people#create', as: 'family_people_create'
 
 end

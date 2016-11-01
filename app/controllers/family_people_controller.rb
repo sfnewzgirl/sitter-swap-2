@@ -23,18 +23,17 @@ class FamilyPeopleController < ApplicationController
   # POST /family_people
   # POST /family_people.json
   def create
-    @family_person = FamilyPerson.new(family_person_params)
+    @family_person = FamilyPerson.new(family_person_create_params)
+    @family_person.person_id = current_person.id
 
-    respond_to do |format|
       if @family_person.save
-        format.html { redirect_to @family_person, notice: 'Family person was successfully created.' }
-        format.json { render :show, status: :created, location: @family_person }
+        flash[:notice] = "Your family has been confirmed."
+        redirect_to '/people/' + current_person.id.to_s
       else
-        format.html { render :new }
-        format.json { render json: @family_person.errors, status: :unprocessable_entity }
+        flash[:error] = "Something went wrong. Please try again."
+        redirect_to new_family_person_path
       end
     end
-  end
 
   # PATCH/PUT /family_people/1
   # PATCH/PUT /family_people/1.json
@@ -74,5 +73,9 @@ class FamilyPeopleController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def family_person_params
       params.require(:family_person).permit(:role, :family_id, :person_id)
+    end
+
+    def family_person_create_params
+      params.permit(:role, :family_id)
     end
 end
