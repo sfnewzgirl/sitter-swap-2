@@ -35,7 +35,7 @@ body {
   }
 }
 
-#welcome-header-links {
+#welcome-header-links, .log-out-button {
   a {
     float: right;
   	background-color: $limegreen;

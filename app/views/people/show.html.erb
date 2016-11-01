@@ -1,49 +1,80 @@
 <h1>Welcome <%= current_person.first_name %> <%= current_person.last_name %></h1>
-
-<!-- create new family -->
-<div class="new-family-button">
-  <h3>Make a family profile</h3> <%= link_to 'New Family', new_family_path %>
-</div>
-
-<h3>My Family</h3>
-<p>Select your family so you can see it here!</p>
-<div class="select-family-button">
-  <%= link_to 'Select Family', family_people_search_path %>
-</div>
-
+<p id="notice"><%= notice %></p>
 <div class="log-out-button">
   <%= link_to 'Log Out', logout_path(@person), class: "btn btn-default" %>
 </div>
 
-<p id="notice"><%= notice %></p>
+<div id="my-family-section">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-6">
+        <h2>My Family</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-4">
+        <!-- List of families a person has a relationship with -->
+        <ul class=>
+          <% current_person.families.each do |family| %>
+            <li>
+              <%= link_to family.family_name, '/families/' + family.id.to_s %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    <h3>Don't see a family listed?</h3>
+    <div class="row">
+      <div class="col-lg-4">
+        <ul>
+          <!-- create new family -->
+          <li><strong>FIRST:</strong> Make sure you created a family profile. You can do that here: <%= link_to 'New Family', new_family_path %></li>
+          <li>
+          <!-- link to a new family -->
+          <li><strong>NEXT:</strong> You still need to select the family as yours. You can do that here: <%= link_to 'Select Family', family_people_search_path %></li>
 
-<div class="profile-image">
-  <%= image_tag("http://i.imgur.com/vZpEGd7.jpg", class: "profile-image", alt: "sitter-swap-connects-families") %>
-</div>
 
-<p>
-  <strong>First name:</strong>
-  <%= current_person.first_name %>
-</p>
 
-<p>
-  <strong>Last name:</strong>
-  <%= current_person.last_name %>
-</p>
 
-<p>
-  <strong>Phone number:</strong>
-  <%= current_person.phone_number %>
-</p>
 
-<p>
-  <strong>City:</strong>
-  <%= current_person.city %>
-</p>
 
-<p>
-  <strong>Email:</strong>
-  <%= current_person.email %>
-</p>
 
-<%= link_to 'Edit', edit_person_path(current_person) %>
+
+</section>
+
+<section id="my-profile-section">
+  <div id="my-family-section">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="profile-image">
+            <%= image_tag("http://i.imgur.com/vZpEGd7.jpg", class: "profile-image", alt: "sitter-swap-connects-families") %>
+          </div>
+
+          <p>
+            <strong>First name:</strong>
+            <%= current_person.first_name %>
+          </p>
+
+          <p>
+            <strong>Last name:</strong>
+            <%= current_person.last_name %>
+          </p>
+
+          <p>
+            <strong>Phone number:</strong>
+            <%= current_person.phone_number %>
+          </p>
+
+          <p>
+            <strong>City:</strong>
+            <%= current_person.city %>
+          </p>
+
+          <p>
+            <strong>Email:</strong>
+            <%= current_person.email %>
+          </p>
+
+          <%= link_to 'Edit', edit_person_path(current_person) %>
+</section>

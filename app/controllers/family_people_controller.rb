@@ -33,7 +33,7 @@ class FamilyPeopleController < ApplicationController
         flash[:error] = "Something went wrong. Please try again."
         redirect_to new_family_person_path
       end
-    end
+  end
 
   # PATCH/PUT /family_people/1
   # PATCH/PUT /family_people/1.json
