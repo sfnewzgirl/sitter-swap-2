@@ -45,10 +45,21 @@ class PeopleController < ApplicationController
     redirect_to root_path
   end
 
-  def sitters
-    @sitter = Person.new(person_params)
-    sitter_params = person_params.merge({family_id: current_person.family_id})
-    current_person.family_id
+  def new_sitter
+    current_person = Person.find_by_id(:id)
+    @sitter = Person.new
+  end
+
+  def create_sitter
+    current_person = Person.find_by_id(:id)
+    @sitter = Person.new(sitter_person_params)
+    if @sitter.save
+      flash[:notice] = 'Your profile was successfully created.'
+      redirect_to person_path(current_person)
+    else
+      flash[:notice] = 'Something went wrong. Please try again.'
+      redirect_to new_sitter_path
+    end
   end
 
   private
@@ -59,5 +70,9 @@ class PeopleController < ApplicationController
 
     def person_params
       params.require(:person).permit(:first_name, :last_name, :phone_number, :city, :email, :password)
+    end
+
+    def sitter_person_params
+      params.require(:person).permit(:first_name, :last_name, :phone_number, :city, :email)
     end
 end

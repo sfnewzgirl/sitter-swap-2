@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   get '/', to: 'welcome#home', as: 'root'
 
+  # sessions
   get '/about', to: 'welcome#about', as: 'about'
   get '/login', to: 'sessions#new', as: 'login'
   post '/sessions', to: 'sessions#create'
@@ -10,7 +11,8 @@ Rails.application.routes.draw do
   # resources :family_people
   resources :families
   resources :people
-  get '/people/sitters', to: 'people#sitters', as: 'new_sitter'
+  get '/people/:id/sitters/new', to: 'people#new_sitter', as: 'new_sitter'
+  post '/people/:id/sitters', to: 'people#create_sitter', as: 'create_sitter'
 
   #search path to find families
   get '/family_people/search', to: 'family_people#search', as: 'family_people_search'
