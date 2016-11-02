@@ -18,45 +18,48 @@
     </div>
   </div>
 </div>
-<section id="my-family-section">
-  <div class="clearfix">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-sm-12">
-          <center><h2>My Family Relationships</h2></center>
-        </div>
+<section id="my-family-section" class="clearfix">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <center><h2>My Family Relationships</h2></center>
       </div>
-      <div class="row">
-        <div class="col-sm-12">
-          <!-- List of families -->
-          <!-- TODO needs to be only caregivers role -->
-          <ul class=>
-            <% current_person.families.each do |family| %>
-              <li><strong>Family Name: </strong><%= link_to family.family_name, '/families/' + family.id.to_s %> | <% current_person.family_people.each do |person| %>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <!-- List of families -->
+        <!-- TODO needs to be only caregivers role -->
+        <ul>
+          <% current_person.families.each do |family| %>
+            <li><strong>Family Name: </strong><%= link_to family.family_name, '/families/' + family.id.to_s %>
+              <ul>
+                <% current_person.family_people.each do |person| }%>
+                <li><%= person.role %></li>
                 <% end %>
-            <% end %>
-          </ul>
-        </div>
+              </ul>
+            </li>
+          <% end %>
+        </ul>
       </div>
-      <h3>Don't see your family listed?</h3>
-      <div class="row">
-        <div class="col-sm-12 family-person-directions">
-          <ul>
-            <!-- create new family -->
-            <li><strong>FIRST:</strong> Create a family profile. Click here: <%= link_to 'New Family', new_family_path %></li>
-            <!-- link to a family -->
-            <li><strong>NEXT:</strong> Select the family as yours. Click here: <%= link_to 'Select Family', family_people_search_path %></li>
-          </ul>
-        </div>
+    </div>
+    <h3>Don't see your family listed?</h3>
+    <div class="row">
+      <div class="col-sm-12 family-person-directions">
+        <ul>
+          <!-- create new family -->
+          <li><strong>FIRST:</strong> Create a family profile. Click here: <%= link_to 'New Family', new_family_path %></li>
+          <!-- link to a family -->
+          <li><strong>NEXT:</strong> Select the family as yours. Click here: <%= link_to 'Select Family', family_people_search_path %></li>
+        </ul>
       </div>
-      <h3>Want to connect to other families?</h3>
-      <div class="row">
-        <div class="col-sm-12 family-person-directions">
-          <ul>
-            <!-- link to a family -->
-            <li><strong>NEXT:</strong> Select the family as your <i>friend</i> on our search page. You can do that here: <%= link_to 'Find Friend', family_people_search_path %></li>
-          </ul>
-        </div>
+    </div>
+    <h3>Want to connect to other families?</h3>
+    <div class="row">
+      <div class="col-sm-12 family-person-directions">
+        <ul>
+          <!-- link to a family -->
+          <li><strong>NEXT:</strong> Select the family as your <i>friend</i> on our search page. You can do that here: <%= link_to 'Find Friend', family_people_search_path %></li>
+        </ul>
       </div>
     </div>
   </div>
@@ -72,9 +75,6 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-md-2">
-          &nbsp;
-        </div>
         <div class="col-md-6 col-sm-12">
           <p>
             <strong>Name:</strong>
@@ -83,32 +83,25 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-md-2">
-          &nbsp;
-        </div>
-        <div class="col-md-4 col-sm-4">
+        <div class="col-sm-6">
           <p>
             <strong>Phone number:</strong>
             <%= current_person.phone_number %>
           </p>
         </div>
-        <div class="col-md-4 col-sm-4">
+        <div class="col-sm-6">
           <p>
             <strong>City:</strong>
             <%= current_person.city %>
           </p>
         </div>
-        <div class="row">
-          <div class="col-md-2">
-            &nbsp;
-          </div>
-          <div class="col-md-6 col-sm-12">
-            <p>
-              <strong>Email:</strong>
-              <%= current_person.email %>
-            </p>
-          </div>
-        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-sm-12">
+          <p>
+            <strong>Email:</strong>
+            <%= current_person.email %>
+          </p>
         </div>
       </div>
     </div>

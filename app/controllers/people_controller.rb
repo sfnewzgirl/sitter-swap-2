@@ -53,14 +53,13 @@ class PeopleController < ApplicationController
   end
 
   def create_sitter
-    current_person = Person.find_by_id(:id)
-    @sitter = Person.new(sitter_person_params)
+    @sitter = Person.new(person_params)
     if @sitter.save
       flash[:notice] = 'Your profile was successfully created.'
       redirect_to person_path(current_person)
     else
       flash[:notice] = 'Something went wrong. Please try again.'
-      redirect_to new_sitter_path
+      redirect_to person_path(current_person)
     end
   end
 
