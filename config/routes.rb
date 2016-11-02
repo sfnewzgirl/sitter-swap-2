@@ -11,8 +11,9 @@ Rails.application.routes.draw do
   # resources :family_people
   resources :families
   resources :people
-  get '/people/:id/sitters/new', to: 'people#new_sitter', as: 'new_sitter'
-  post '/people/sitters', to: 'people#create_sitter', as: 'create_sitter'
+  get '/people/person_search', to: 'people#search', as: 'person_search'
+  # get '/people/:id/sitters/new', to: 'people#new_sitter', as: 'new_sitter'
+  # post '/people/sitters', to: 'people#create_sitter', as: 'create_sitter'
 
   #search path to find families
   get '/family_people/search', to: 'family_people#search', as: 'family_people_search'

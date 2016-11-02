@@ -10,28 +10,16 @@
     </div>
   </div>
 </div>
-
-<div class="container-fluid">
-  <div class="row search-page-header">
-    <div class="col-sm-12">
-      <center>
-        <h1>Family Search Page</h1>
-        <p>Find the families that make SitterSwap so great!</p>
-      </center>
-    </div>
-  </div>
-</div>
-<!-- search and results to select a caregivers family -->
 <div class="container-fluid">
   <div class="row">
     <div class="col-sm-12">
-      <p>Search by the <i>family name</i>, usually the surname. For example, Doe for John Doe.</p>
+      <p>Search for a person by <i>email</i>. For example, name@example.com.</p>
     </div>
   </div>
   <div class="row">
     <div class="col-sm-12" id="search-bar">
-      <%= form_tag("/family_people/search", method: "get") do %>
-        <%= label_tag(:q, "Search for a family") %>
+      <%= form_tag("/people/person_search", method: "get") do %>
+        <%= label_tag(:q, "Search for a person") %>
         <%= text_field_tag(:q) %>
         <%= submit_tag("Search") %>
       <% end %>
@@ -55,5 +43,4 @@
         <% end %>
       </ul>
     </div>
-  </div>
 </div>
