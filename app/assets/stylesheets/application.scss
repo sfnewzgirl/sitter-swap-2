@@ -33,6 +33,9 @@ $beige: #d4c3c3;
     font-weight: bold;
     border-radius: .5em;
   }
+}
+
+@mixin blue-box-div {
   div {
     background-color: $blue;
     color: white;
@@ -112,6 +115,10 @@ body {
 }
 
 .about-image {
+  max-width: 100%;
+}
+
+#how-it-works-img {
   max-width: 100%;
 }
 

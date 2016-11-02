@@ -1,5 +1,5 @@
 class FamilyPeopleController < ApplicationController
-  before_action :set_family, only: [:show, :edit, :update, :destroy]
+  before_action :set_family, only: [:new, :show, :edit, :update, :destroy]
 
   def index
     @family_people = FamilyPerson.all
@@ -10,6 +10,7 @@ class FamilyPeopleController < ApplicationController
 
   def new
     @family_person = FamilyPerson.new
+    family_id = Family.find_by(params[:id])
   end
 
   def edit
@@ -58,6 +59,10 @@ class FamilyPeopleController < ApplicationController
 
   private
 
+    def set_family
+      @family = Family.all.select{|fam| fam.id == (params[:id])}
+    end
+
     def set_family_person
       @family_person = FamilyPerson.find(params[:id])
     end
@@ -70,7 +75,4 @@ class FamilyPeopleController < ApplicationController
       params.permit(:role, :family_id)
     end
 
-    def family_params
-      params.require(:family).permit(:family_id)
-    end
 end
