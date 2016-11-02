@@ -1,4 +1,5 @@
 class FamilyPeopleController < ApplicationController
+  before_action :set_family, only: [:show, :edit, :update, :destroy]
 
   def index
     @family_people = FamilyPerson.all
@@ -17,6 +18,7 @@ class FamilyPeopleController < ApplicationController
   def create
     @family_person = FamilyPerson.new(family_person_create_params)
     @family_person.person_id = current_person.id
+    @famiy = Family.find_by(params[:id])
 
       if @family_person.save
         flash[:notice] = "Your family has been confirmed."
@@ -55,7 +57,7 @@ class FamilyPeopleController < ApplicationController
   end
 
   private
-    
+
     def set_family_person
       @family_person = FamilyPerson.find(params[:id])
     end
@@ -68,5 +70,7 @@ class FamilyPeopleController < ApplicationController
       params.permit(:role, :family_id)
     end
 
-
+    def family_params
+      params.require(:family).permit(:family_id)
+    end
 end
