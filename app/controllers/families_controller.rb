@@ -10,17 +10,13 @@ class FamiliesController < ApplicationController
     @family_people = Person.find_by(params[:family_id])
   end
 
-  # GET /families/new
   def new
     @family = Family.new
   end
 
-  # GET /families/1/edit
   def edit
   end
 
-  # POST /families
-  # POST /families.json
   def create
     @family = Family.new(family_params)
 
@@ -35,8 +31,6 @@ class FamiliesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /families/1
-  # PATCH/PUT /families/1.json
   def update
     respond_to do |format|
       if @family.update(family_params)
@@ -49,8 +43,6 @@ class FamiliesController < ApplicationController
     end
   end
 
-  # DELETE /families/1
-  # DELETE /families/1.json
   def destroy
     @family.destroy
     respond_to do |format|
@@ -60,12 +52,11 @@ class FamiliesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_family
       @family = Family.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def family_params
       params.require(:family).permit(:family_name)
     end

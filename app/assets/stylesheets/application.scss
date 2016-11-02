@@ -114,6 +114,13 @@ body {
      height: 0;
 }
 
+#log-in-container {
+  background-color: $limegreen;
+  color: white;
+  display: inline-block;
+  border-radius: .5em;
+}
+
 .about-image {
   max-width: 100%;
 }

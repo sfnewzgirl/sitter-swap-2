@@ -1,18 +1,22 @@
 <div class="container-fluid">
   <div class="row welcome-header clearfix">
-    <div class="col-sm-12" id="sitter-swap-logo">
+    <div class="col-lg-6 col-sm-12" id="sitter-swap-logo">
       <h1>SitterSwap</h1>
     </div>
-    <div class="col-sm-12" id="welcome-header-links">
+    <div class="col-lg-6 col-sm-12" id="welcome-header-links">
       <%= link_to 'About', about_path %>
       <%= link_to 'Join', new_person_path %>
       <%= link_to 'Log In', login_path %>
     </div>
   </div>
 </div>
-
-<p id="notice"><%= notice %></p>
-
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-4 col-sm-12">
+      <p id="notice"><%= notice %></p>
+    </div>
+  </div>
+</div>
 <div class="container-fluid">
   <div class="row">
     <div class="col-sm-12">
