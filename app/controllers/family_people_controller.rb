@@ -63,9 +63,9 @@ class FamilyPeopleController < ApplicationController
       @family = Family.all.select{|fam| fam.id == (params[:id])}
     end
 
-    def set_family_person
-      @family_person = FamilyPerson.find(params[:id])
-    end
+    # def set_family_person
+    #   @family_person = FamilyPerson.find(params[:id])
+    # end
 
     def family_person_params
       params.require(:family_person).permit(:role, :family_id, :person_id)

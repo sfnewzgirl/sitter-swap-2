@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   # resources :family_people
   resources :families
   resources :people
+  get '/people/sitters', to: 'people#sitters', as: 'new_sitter'
 
   #search path to find families
   get '/family_people/search', to: 'family_people#search', as: 'family_people_search'

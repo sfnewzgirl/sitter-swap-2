@@ -45,6 +45,12 @@ class PeopleController < ApplicationController
     redirect_to root_path
   end
 
+  def sitters
+    @sitter = Person.new(person_params)
+    sitter_params = person_params.merge({family_id: current_person.family_id})
+    current_person.family_id
+  end
+
   private
 
     def set_person

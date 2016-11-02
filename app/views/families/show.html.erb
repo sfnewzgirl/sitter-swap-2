@@ -14,7 +14,7 @@
     <div class="col-sm-12">
       <ul>
         <% @family.people.each do |person| %>
-          <li><strong>Name: </strong><%= person.first_name + " " + person.last_name %></li>
+          <li><strong>Name: </strong><%= person.first_name + " " + person.last_name %><%= link_to 'Profile', '/people/' + person.id.to_s %></li>
         <% end %>
       </ul>
     </div>
