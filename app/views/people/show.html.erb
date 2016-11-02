@@ -31,16 +31,23 @@
         <ul>
           <% current_person.families.each do |family| %>
             <li><strong>Family Name: </strong><%= link_to family.family_name, '/families/' + family.id.to_s %></li>
-              <ul>
+
+            <ul>
+            <% current_person.families.each do |family| %>
+            <li><strong>Family Name: </strong><%= link_to family.family_name, '/families/' + family.id.to_s %>
+
+              <!-- <ul>
                 <% family.family_people.each do |person| %>
                 <li><%= person.role %><%= person.person_id %></li>
                 <% end %>
-              </ul>
+              </ul> -->
+
               <ul>
-                <% family.people.each do |person| %>
+                <% family.people.select{ |person| person.role == "friends"} %>
                 <li><strong>Name: </strong><%= person.first_name %> <%= person.last_name %>ID <%= person.id %></li>
                 <% end %>
-              </ul> -->
+              </ul>
+
 
 
 
