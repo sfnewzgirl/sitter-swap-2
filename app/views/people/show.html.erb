@@ -22,21 +22,31 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-sm-12">
-        <center><h2>My Family Relationships</h2></center>
+        <center><h2>My Family</h2></center>
       </div>
     </div>
     <div class="row">
       <div class="col-sm-12">
-        <!-- List of families -->
-        <!-- TODO needs to be only caregivers role -->
+
+        <!-- first loop through each current_person family -->
         <ul>
           <% current_person.families.each do |family| %>
             <li><strong>Family Name: </strong><%= link_to family.family_name, '/families/' + family.id.to_s %>
+       
               <ul>
-                <% current_person.family_people.each do |person| }%>
-                <li><%= person.role %></li>
+                <% family.family_people.each do |person| %>
+                <li><%= person.role %><%= person.person_id %></li>
                 <% end %>
               </ul>
+
+              <ul>
+                <% family.people.each do |person| %>
+                <li><strong>Name: </strong><%= person.first_name %> <%= person.last_name %>ID <%= person.id %></li>
+                <% end %>
+              </ul>
+
+
+
             </li>
           <% end %>
         </ul>

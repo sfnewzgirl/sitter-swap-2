@@ -5,11 +5,8 @@ class PeopleController < ApplicationController
   end
 
   def show
-    current_person = Person.find_by_id(:id)
-    @person = Person.find_by_id(:id)
     family_id = Family.find_by_id(params[:id])
     @family_people = Person.find_by(params[:family_id])
-    @family = Person.find_by(params[:family_id])
   end
 
   def new
