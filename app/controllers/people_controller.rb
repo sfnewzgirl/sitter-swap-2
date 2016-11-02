@@ -23,11 +23,9 @@ class PeopleController < ApplicationController
 
       if @person.save
         flash[:notice] = 'Your profile was successfully created.'
-        flash[:color] = "success"
         redirect_to @person
       else
         flash[:notice] = 'Something went wrong. Please try again.'
-        flash[:color] = "success"
         redirect_to new_person_path
     end
   end
@@ -37,17 +35,14 @@ class PeopleController < ApplicationController
     if @person.update(person_params)
     redirect_to person_path(@person), notice: 'Your profile was successfully updated.'
     else
-      format.html { render :edit }
-      format.json { render json: @person.errors, status: :unprocessable_entity }
+      redirect_to edit_person_path
     end
   end
 
   def destroy
     @person.destroy
-    respond_to do |format|
-      format.html { redirect_to root_path, notice: 'Profile was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    flash[:notice] = 'We are sorry to see you go. Your profile was successfully destroyed.'
+    redirect_to root_path
   end
 
   private
