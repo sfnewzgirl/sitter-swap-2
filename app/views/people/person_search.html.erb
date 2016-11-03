@@ -1,15 +1,4 @@
-<div class="container-fluid">
-  <div class="row welcome-header clearfix">
-    <div class="col-lg-6 col-sm-12" id="sitter-swap-logo">
-      <h1>SitterSwap</h1>
-    </div>
-    <div class="col-lg-6 col-sm-12" id="welcome-header-links">
-      <!-- TODO add links to profile sections -->
-      <%= link_to 'Log Out', logout_path %>
-      <%= link_to 'About', about_path %>
-    </div>
-  </div>
-</div>
+
 <div class="container-fluid">
   <div class="row">
     <div class="col-sm-12">
@@ -34,10 +23,7 @@
           <li>
             <%= link_to result.family_name, '/families/' + result.id.to_s, role: "caregivers" %>
             <div class="actions">
-              <%= button_to "Parent", family_people_create_path, params: {role: "caregivers", family_id: result.id}, form_class: "new-thing" %>
-            </div>
-            <div class="actions">
-              <%= button_to "Friend", family_people_create_path, params: {role: "friends", family_id: result.id}, form_class: "new-thing" %>
+              <%= button_to "Confirm Sitter", family_people_create_path, params: {role: "sitters", family_id: result.id}, form_class: "new-thing" %>
             </div>
           </li>
         <% end %>

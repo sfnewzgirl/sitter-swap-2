@@ -15,8 +15,8 @@
   <div class="row search-page-header">
     <div class="col-sm-12">
       <center>
-        <h1>Family Search Page</h1>
-        <p>Find the families that make SitterSwap so great!</p>
+        <h1>Search Page</h1>
+        <p>Find the families &amp people that make SitterSwap so great!</p>
       </center>
     </div>
   </div>
@@ -56,4 +56,33 @@
       </ul>
     </div>
   </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <p>Search for a person by <i>email</i>. For example, name@example.com.</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12" id="search-bar">
+      <%= form_tag("/family_people/search", method: "get") do %>
+        <%= label_tag(:q, "Search for a person") %>
+        <%= text_field_tag(:q) %>
+        <%= submit_tag("Search") %>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 col-sm-12">
+      <p>Search Results:</p>
+      <hr>
+      <ul>
+        <% @sitters.each do |sitter| %>
+          <li>
+            <%= link_to sitter.first_name + sitter.last_name, '/people/' + sitter.id.to_s, role: "sitters" %>
+            <div class="actions">
+              <%= button_to "Confirm Sitter", family_people_create_path, params: {role: "sitters", person_id: sitter.id}, form_class: "new-thing" %>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    </div>
 </div>

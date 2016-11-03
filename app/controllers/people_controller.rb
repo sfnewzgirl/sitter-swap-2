@@ -45,10 +45,7 @@ class PeopleController < ApplicationController
     redirect_to root_path
   end
 
-  def search
-    @user_input = params[:q].downcase
-    @results = Person.all.select{|person| person.email == @user_input}
-  end
+
 
   # def new_sitter
   #   current_person = Person.find_by_id(:id)

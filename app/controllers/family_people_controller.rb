@@ -55,6 +55,7 @@ class FamilyPeopleController < ApplicationController
   def search
     @user_input = params[:q]
     @results = Family.all.select{|fam| fam.family_name == @user_input}
+    @sitters = Person.all.select{|person| person.email == @user_input}
   end
 
   private
@@ -72,7 +73,7 @@ class FamilyPeopleController < ApplicationController
     end
 
     def family_person_create_params
-      params.permit(:role, :family_id)
+      params.permit(:role, :family_id, :person_id)
     end
 
 end
