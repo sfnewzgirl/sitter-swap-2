@@ -1,13 +1,14 @@
 class PeopleController < ApplicationController
-  before_action :set_person, only: [:show, :edit, :update, :destroy]
+  before_action :set_person, only: [ :edit, :update, :destroy]
 
   def index
   end
 
   def show
-    family_id = Family.find_by_id(params[:id])
-    @family_people = Person.find_by(params[:family_id])
-    @person = Person.find_by(params[:id])
+    puts 'PEOPLE-CONTROLLER-SHOW'
+    puts session[:id]
+    @family_people = Person.find_by_id(params[:id])
+    @person = Person.find_by_id(params[:id])
   end
 
   def new

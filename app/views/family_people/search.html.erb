@@ -77,9 +77,9 @@
       <ul>
         <% @sitters.each do |sitter| %>
           <li>
-            <%= link_to sitter.first_name + sitter.last_name, '/people/' + sitter.id.to_s, role: "sitters" %>
+            <%= link_to sitter.first_name + " " + sitter.last_name, '/people/' + sitter.id.to_s %>
             <div class="actions">
-              <%= button_to "Confirm Sitter", family_people_create_path, params: {role: "sitters", person_id: sitter.id}, form_class: "new-thing" %>
+              <%= button_to "Confirm Sitter", family_people_sitter_create_path, params: {role: "sitters", person_id: sitter.id}, form_class: "new-thing" %>
             </div>
           </li>
         <% end %>

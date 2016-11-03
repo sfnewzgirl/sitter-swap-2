@@ -12,7 +12,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-sm-12">
-      <center><h1>Welcome <%= current_person.first_name %> <%= current_person.last_name %></h1></center>
+      <center><h1>Welcome <%= @person.first_name %> <%= @person.last_name %></h1></center>
       <p id="notice"><%= notice %></p>
     </div>
   </div>
@@ -30,13 +30,13 @@
         <h3><strong>Family Friends</strong></h3>
         <p>Connect with your friends' families and find more sitters.</p>
         <ul>
-          <% current_person.families.each do |family| %>
+          <% @person.families.each do |family| %>
             <li><strong>Family Name: </strong><%= link_to family.family_name, '/families/' + family.id.to_s %></li>
           <% end %>
         </ul>
         <h3><strong>My Sitters</strong></h3>
         <ul>
-          <% current_person.families.each do |family| %>
+          <% @person.families.each do |family| %>
             <% family.family_people.select{ |person| person.role == "sitters"} %>
             <li><%= link_to @person.first_name + " " + @person.last_name %></li>
           <% end %>
@@ -81,15 +81,15 @@
       <div class="row">
         <div class="col-sm-12">
           <center><h2>My Profile</h2></center>
-          <%= link_to 'Edit', edit_person_path(current_person) %>
-          <%= link_to 'Delete Profile', edit_person_path(current_person) %>
+          <%= link_to 'Edit', edit_person_path(@person) %>
+          <%= link_to 'Delete Profile', edit_person_path(@person) %>
         </div>
       </div>
       <div class="row">
         <div class="col-md-6 col-sm-12">
           <p>
             <strong>Name:</strong>
-            <%= current_person.first_name %> <%= current_person.last_name %>
+            <%= @person.first_name %> <%= @person.last_name %>
           </p>
         </div>
       </div>
@@ -97,13 +97,13 @@
         <div class="col-sm-6">
           <p>
             <strong>Phone number:</strong>
-            <%= current_person.phone_number %>
+            <%= @person.phone_number %>
           </p>
         </div>
         <div class="col-sm-6">
           <p>
             <strong>City:</strong>
-            <%= current_person.city %>
+            <%= @person.city %>
           </p>
         </div>
       </div>
@@ -111,7 +111,7 @@
         <div class="col-md-6 col-sm-12">
           <p>
             <strong>Email:</strong>
-            <%= current_person.email %>
+            <%= @person.email %>
           </p>
         </div>
       </div>

@@ -32,6 +32,34 @@ class FamilyPeopleController < ApplicationController
       end
   end
 
+  def sitter_create
+    #@sitters = Person.find_by(params[:id])
+    @family_person = FamilyPerson.new(family_person_sitter_create_params)
+    puts 'FAMILY-PERSON'
+
+    fams = FamilyPerson.select{ |fp| fp.role == "caregivers" && fp.person_id == current_person.id }
+    puts 'FAMS'
+    if fams
+      puts 'FAMS-FOUND'
+      puts fams
+      @family_person.family_id = fams[0].id
+    end
+    puts 'FAMILY-ID'
+
+    if @family_person.save
+      puts 'SAVE-SUCCEEDED'
+      flash[:notice] = "Your family has been confirmed."
+      flash[:color] = "success"
+      redirect_to '/people/' + current_person.id.to_s
+    else
+      puts 'SAVE-FAILED'
+      flash[:error] = "Something went wrong. Please try again."
+      flash[:color] = "failure"
+      #redirect_to family_people_search_path
+      redirect_to "http://www.example.com/"
+    end
+  end
+
   def update
     respond_to do |format|
       if @family_person.update(family_person_params)
@@ -64,15 +92,15 @@ class FamilyPeopleController < ApplicationController
       @family = Family.all.select{|fam| fam.id == (params[:id])}
     end
 
-    # def set_family_person
-    #   @family_person = FamilyPerson.find(params[:id])
-    # end
-
     def family_person_params
       params.require(:family_person).permit(:role, :family_id, :person_id)
     end
 
     def family_person_create_params
+      params.permit(:role, :family_id, :person_id)
+    end
+
+    def family_person_sitter_create_params
       params.permit(:role, :family_id, :person_id)
     end
 

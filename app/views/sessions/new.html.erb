@@ -10,38 +10,37 @@
     </div>
   </div>
 </div>
-
 <div class="container-fluid" id="log-in-container">
   <div class="row">
     <div class="col-md-6 col-md-offset-2 col-sm-12">
       <div class="form-group">
         <h1>Log In</h1>
         <%= form_for @person, url: '/sessions' do |f| %>
-      </div>
-      <div class="row">
-        <div class="col-md-6 col-md-offset-2 col-sm-12">
-          <div class="form-group">
-            <p>Email</p>
-            <%= f.email_field :email %>
+          <div class="row">
+            <div class="col-md-6 col-md-offset-2 col-sm-12">
+              <div class="form-group">
+                <p>Email</p>
+                <%= f.email_field :email %>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6 col-md-offset-2 col-sm-12">
-          <div class="form-group">
-            <p>Password</p>
-            <%= f.password_field :password %>
+          <div class="row">
+            <div class="col-md-6 col-md-offset-2 col-sm-12">
+              <div class="form-group">
+                <p>Password</p>
+                <%= f.password_field :password %>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6 col-sm-12">
-          <div class="form-group">
-            <%= f.submit %>
+          <div class="row">
+            <div class="col-md-6 col-sm-12">
+              <div class="form-group">
+                <%= f.submit %>
+              </div>
+            </div>
           </div>
-        </div>
+        <% end %>
       </div>
-      <% end %>
     </div>
   </div>
 </div>
