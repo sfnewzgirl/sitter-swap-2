@@ -7,14 +7,13 @@
       <%= link_to 'Log Out', logout_path %>
       <%= link_to 'About', about_path %>
       <%= link_to 'Home', root_path %>
+      <%= link_to 'Profile', person_path(current_person) %>
     </div>
   </div>
 </div>
-
-<h1>New Family</h1>
-
-<!-- TODO directions for creating a family profile -->
-
+<div class="container-fluid form-container">
+  <div class="log-in-header login-header-title">
+    <h1>New Family</h1>
+  </div>
+</div>
 <%= render 'form', family: @family %>
-
-<%= link_to 'Back', families_path %>

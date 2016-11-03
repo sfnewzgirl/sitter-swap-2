@@ -10,13 +10,20 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :family_name %>
-    <%= f.text_field :family_name %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <div class="container-fluid form-container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-2 col-sm-12">
+        <div class="field">
+          <strong><%= f.label :family_name %></strong>
+          <%= f.text_field :family_name, placeholder: 'Create a family name' %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-2 col-sm-12">
+        <div class="actions">
+          <%= f.submit class: "btn btn-default btn-submit" %>
+        </div>
+      </div>
+    </div>
 <% end %>
