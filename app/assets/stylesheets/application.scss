@@ -104,6 +104,19 @@ body {
     margin: 1.5em;
     list-style: none;
   }
+  .btn-submit {
+  	background-color: $limegreen;
+    color: white;
+    margin: 1em;
+    padding: 1em;
+    font-size: 1.25em;
+    font-weight: bold;
+    border-radius: .5em;
+    box-shadow: 1px 1px 2px $forestgreen;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+  }
 }
 
 #sitter-swap-logo {
@@ -166,7 +179,6 @@ body {
 }
 #welcome-header-links { @include lime-green-box-links; }
 .log-out-button {@include lime-green-box-links; }
-.btn-submit { @include lime-green-box-links; }
 .search-page-header { @include blue-box-ul-li; }
 .user-welcome {@include blue-box-div; }
 .btn-login {@include beige-btn; }
