@@ -7,6 +7,7 @@ class PeopleController < ApplicationController
   def show
     @family_people = Person.find_by_id(params[:id])
     @person = Person.find_by_id(params[:id])
+    @person_family_id = FamilyPerson.select{ |fp| fp.role == "caregivers" && fp.person_id == current_person.id }.first().family_id
   end
 
   def new
