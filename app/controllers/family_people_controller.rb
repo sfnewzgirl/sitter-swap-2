@@ -19,7 +19,7 @@ class FamilyPeopleController < ApplicationController
   def create
     @family_person = FamilyPerson.new(family_person_create_params)
     @family_person.person_id = current_person.id
-    @famiy = Family.find_by(params[:id])
+    @results = Family.find_by(params[:id])
 
       if @family_person.save
         flash[:notice] = "Your family has been confirmed."

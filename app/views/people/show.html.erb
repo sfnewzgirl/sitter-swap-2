@@ -27,6 +27,8 @@
     <div class="row">
       <div class="col-sm-12">
         <!-- first loop through each current_person family -->
+        <h3>Family Friends</h3>
+        <p>Click on a family friend to see their profile and connect with more sitters</p>
         <ul>
           <% current_person.families.each do |family| %>
             <li><strong>Family Name: </strong><%= link_to family.family_name, '/families/' + family.id.to_s %></li>
@@ -34,7 +36,7 @@
             <li><strong>Family Name: </strong><%= link_to family.family_name, '/families/' + family.id.to_s %></li>
               <ul>
                 <% family.family_people.select{ |person| person.role == "friends"} %>
-                <li><%= @person.first_name %></li>
+                <li><%= link_to @person.first_name + " " + @person.last_name %></li>
                 <% end %>
               </ul>
             </li>
@@ -42,24 +44,28 @@
         </ul>
       </div>
     </div>
-    <h3>Don't see your family listed?</h3>
+  </div>
+</section>
+<section id="directions-sections" class="clearfix">
+  <div class="container-fluid">
+    <center><h2>Connect</h2></center>
+    <p>Find the families &amp people that make SitterSwap so great!</p>
     <div class="row">
       <div class="col-sm-12 family-person-directions">
-        <ul>
           <!-- create new family -->
           <li><strong>FIRST:</strong> Create a family profile. Click here: <%= link_to 'New Family', new_family_path %></li>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12 family-person-directions">
           <!-- link to a family -->
           <li><strong>NEXT:</strong> Select the family as yours. Click here: <%= link_to 'Select Family', family_people_search_path %></li>
-        </ul>
       </div>
     </div>
-    <h3>Want to connect to other families?</h3>
     <div class="row">
       <div class="col-sm-12 family-person-directions">
-        <ul>
           <!-- link to a family -->
           <li><strong>NEXT:</strong> Select the family as your <i>friend</i> on our search page. You can do that here: <%= link_to 'Find Friend', family_people_search_path %></li>
-        </ul>
       </div>
     </div>
   </div>
