@@ -5,8 +5,6 @@ class PeopleController < ApplicationController
   end
 
   def show
-    puts 'PEOPLE-CONTROLLER-SHOW'
-    puts session[:id]
     @family_people = Person.find_by_id(params[:id])
     @person = Person.find_by_id(params[:id])
   end
@@ -46,24 +44,6 @@ class PeopleController < ApplicationController
     redirect_to root_path
   end
 
-
-
-  # def new_sitter
-  #   current_person = Person.find_by_id(:id)
-  #   @sitter = Person.new
-  # end
-  #
-  # def create_sitter
-  #   @sitter = Person.new(person_params)
-  #   if @sitter.save
-  #     flash[:notice] = 'Your profile was successfully created.'
-  #     redirect_to person_path(current_person)
-  #   else
-  #     flash[:notice] = 'Something went wrong. Please try again.'
-  #     redirect_to person_path(current_person)
-  #   end
-  # end
-
   private
 
     def set_person
@@ -74,7 +54,4 @@ class PeopleController < ApplicationController
       params.require(:person).permit(:first_name, :last_name, :phone_number, :city, :email, :password)
     end
 
-    # def sitter_person_params
-    #   params.require(:person).permit(:first_name, :last_name, :phone_number, :city, :email)
-    # end
 end

@@ -35,7 +35,7 @@
           <% end %>
         <h3><strong>My Sitters</strong></h3>
         <ul>
-          <% Person.joins(:family_people).where('family_people.person_id': @person.id).where('family_people.role': "sitters").each do |person| %>
+          <% Person.joins(:family_people).where('family_people.family_id': @family.id).where('family_people.role': "sitters").each do |person| %>
             <li><strong>Sitter: </strong><%= link_to person.first_name, '/people/' + person.id.to_s %></li>
           <% end %>
         </ul>
