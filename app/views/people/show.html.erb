@@ -27,9 +27,9 @@
     <div class="row">
       <div class="col-sm-12">
         <!-- list family friends -->
-        <h3><strong>My Family</strong></h3>
+        <h3><strong>My Families</strong></h3>
         <ul>
-          <% @person.families.each do |family| %>
+          <% Family.joins(:family_people).where('family_people.person_id': @person.id).where('family_people.role': "caregivers").each do |family| %>
             <li><strong>Family Name: </strong><%= link_to family.family_name, '/families/' + family.id.to_s %></li>
           <% end %>
         </ul>
@@ -40,8 +40,9 @@
         <h3><strong>My Sitters</strong></h3>
         <ul>
           <% @person.families.each do |family| %>
-            <li><% family.family_people.select{ |person| person.role == "sitters" } %>
-              <% link_to @person.first_name + " " + @person.last_name %>
+            <li><%= family.family_people.select{ |person| person.role == "sitters" } %>
+              <li>
+
             </li>
           <% end %>
         </ul>
