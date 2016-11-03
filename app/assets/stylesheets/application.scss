@@ -115,23 +115,6 @@ body {
   }
 }
 
-// #welcome-header-links, .log-out-button {
-//   a {
-//     float: right;
-//   	background-color: $limegreen;
-//     color: white;
-//     display: inline-block;
-//     margin: 1em;
-//     padding: 1em;
-//     font-size: 1.25em;
-//     font-weight: bold;
-//     border-radius: .5em;
-//     -webkit-user-select: none;
-//     -moz-user-select: none;
-//     -ms-user-select: none;
-//   }
-// }
-
 .clearfix:after {
      visibility: hidden;
      display: block;
@@ -141,7 +124,7 @@ body {
      height: 0;
 }
 
-#log-in-container {
+.form-container {
   color: $forestgreen;
   max-width: 25%;
   margin-left: 40%;
