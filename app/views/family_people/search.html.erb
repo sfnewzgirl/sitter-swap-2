@@ -44,12 +44,12 @@
       <ul>
         <% @results.each do |result| %>
           <li>
-            <%= link_to result.family_name, '/families/' + result.id.to_s, role: "caregivers" %>
+            <p><%= link_to result.family_name, '/families/' + result.id.to_s, role: "caregivers" %><p>
             <div class="actions">
-              <%= button_to "Parent", family_people_create_path, params: {role: "caregivers", family_id: result.id}, form_class: "new-thing" %>
+              <%= button_to "Parent", family_people_create_path, params: {role: "caregivers", family_id: result.id}, form_class: "new-thing", class: "btn btn-default btn-search" %>
             </div>
             <div class="actions">
-              <%= button_to "Friend", family_people_create_path, params: {role: "friends", family_id: result.id}, form_class: "new-thing" %>
+              <%= button_to "Friend", family_people_create_path, params: {role: "friends", family_id: result.id}, form_class: "new-thing", class: "btn btn-default btn-search" %>
             </div>
           </li>
         <% end %>
@@ -77,9 +77,9 @@
       <ul>
         <% @sitters.each do |sitter| %>
           <li>
-            <%= link_to sitter.first_name + " " + sitter.last_name, '/people/' + sitter.id.to_s %>
+            <p><%= link_to sitter.first_name + " " + sitter.last_name, '/people/' + sitter.id.to_s %></p>
             <div class="actions">
-              <%= button_to "Confirm Sitter", family_people_sitter_create_path, params: {role: "sitters", person_id: sitter.id}, form_class: "new-thing" %>
+              <%= button_to "Confirm Sitter", family_people_sitter_create_path, params: {role: "sitters", person_id: sitter.id}, form_class: "new-thing", class: "btn btn-default btn-search" %>
             </div>
           </li>
         <% end %>
