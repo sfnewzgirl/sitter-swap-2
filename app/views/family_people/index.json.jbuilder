@@ -1,1 +1,0 @@
-json.array! @family_people, partial: 'family_people/family_person', as: :family_person

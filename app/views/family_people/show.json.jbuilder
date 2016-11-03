@@ -1,1 +1,0 @@
-json.partial! "family_people/family_person", family_person: @family_person
