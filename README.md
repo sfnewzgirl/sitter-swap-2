@@ -59,7 +59,8 @@ Person.joins(:family_people).where('family_people.family_id': @person_family_id)
 
 ## Wireframes
 
-![alt text]()
+![alt text](http://i.imgur.com/GNU0qYV.jpg?1)
+![alt text](http://i.imgur.com/7UFOPhe.jpg)
 
 ## What's Next
 In it's current iteration, SitterSwap is only the beginning.
