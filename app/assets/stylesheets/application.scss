@@ -59,6 +59,12 @@ $beige: #d4c3c3;
   border-radius: .5em;
 }
 
+@mixin beige-btn {
+  background-color: $beige;
+  color: $forestgreen;
+  padding: .5em;
+}
+
 body {
   font-family: 'Slabo 27px', serif;
   h2 {
@@ -152,3 +158,4 @@ body {
 
 .search-page-header { @include blue-box-ul-li; }
 .user-welcome {@include blue-box-div; }
+.btn-default {@include beige-btn; }
