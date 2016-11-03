@@ -6,12 +6,13 @@
     <div class="col-lg-6 col-sm-12" id="welcome-header-links">
       <%= link_to 'Log Out', logout_path %>
       <%= link_to 'About', about_path %>
+      <%= link_to 'Home', root_path %>
     </div>
   </div>
 </div>
 <div class="container-fluid">
   <div class="row">
-    <div class="col-sm-12">
+    <div class="col-sm-12 user-welcome">
       <center><h1>Welcome <%= @person.first_name %> <%= @person.last_name %></h1></center>
       <p id="notice"><%= notice %></p>
     </div>
