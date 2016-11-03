@@ -5,9 +5,15 @@ class PeopleController < ApplicationController
   end
 
   def show
+    @person_family_id = -1
     @family_people = Person.find_by_id(params[:id])
     @person = Person.find_by_id(params[:id])
-    @person_family_id = FamilyPerson.select{ |fp| fp.role == "caregivers" && fp.person_id == current_person.id }.first().family_id
+    if current_person
+      person_family = FamilyPerson.select{ |fp| fp.role == "caregivers" && fp.person_id == current_person.id }.first()
+      if person_family
+        @person_family_id = person_family.family_id
+      end
+    end
   end
 
   def new
