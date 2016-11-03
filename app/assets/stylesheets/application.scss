@@ -136,5 +136,18 @@ body {
   padding-left: 3em;
 }
 
-.family-person-directions { @include blue-box-ul-li; }
+.family-person-directions {
+  background-color: $limegreen;
+  color: white;
+  display: inline-block;
+  margin: 2em;
+  padding: .25em;
+  font-size: 1.25em;
+  font-weight: bold;
+  border-radius: .5em;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
 .search-page-header { @include blue-box-ul-li; }

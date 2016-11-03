@@ -21,25 +21,17 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-sm-12">
-        <center><h2>My Family</h2></center>
+        <center><h2>My Connections</h2></center>
       </div>
     </div>
     <div class="row">
       <div class="col-sm-12">
-        <!-- first loop through each current_person family -->
-        <h3>Family Friends</h3>
-        <p>Click on a family friend to see their profile and connect with more sitters</p>
+        <!-- list family friends -->
+        <h3><strong>Family Friends</strong></h3>
+        <p>Connect with your friends' families and find more sitters.</p>
         <ul>
           <% current_person.families.each do |family| %>
             <li><strong>Family Name: </strong><%= link_to family.family_name, '/families/' + family.id.to_s %></li>
-          <% current_person.families.each do |family| %>
-            <li><strong>Family Name: </strong><%= link_to family.family_name, '/families/' + family.id.to_s %></li>
-              <ul>
-                <% family.family_people.select{ |person| person.role == "friends"} %>
-                <li><%= link_to @person.first_name + " " + @person.last_name %></li>
-                <% end %>
-              </ul>
-            </li>
           <% end %>
         </ul>
       </div>
@@ -48,24 +40,30 @@
 </section>
 <section id="directions-sections" class="clearfix">
   <div class="container-fluid">
-    <center><h2>Connect</h2></center>
-    <p>Find the families &amp people that make SitterSwap so great!</p>
+    <center><h2>How to Connect</h2></center>
+    <center><p>Find the families &amp people that make SitterSwap so great!</p></center
     <div class="row">
-      <div class="col-sm-12 family-person-directions">
+      <div class="col-sm-8 family-person-directions">
           <!-- create new family -->
-          <li><strong>FIRST:</strong> Create a family profile. Click here: <%= link_to 'New Family', new_family_path %></li>
+          <li><strong>FIRST:</strong> Create a profile for your family. Start here: <%= link_to 'New Family', new_family_path %></li>
         </div>
       </div>
       <div class="row">
-        <div class="col-sm-12 family-person-directions">
+        <div class="col-sm-8 family-person-directions">
           <!-- link to a family -->
-          <li><strong>NEXT:</strong> Select the family as yours. Click here: <%= link_to 'Select Family', family_people_search_path %></li>
+          <li><strong>NEXT:</strong> Make sure you link to your new family profile. Click here: <%= link_to 'Select Family', family_people_search_path %></li>
       </div>
     </div>
     <div class="row">
-      <div class="col-sm-12 family-person-directions">
+      <div class="col-sm-8 family-person-directions">
           <!-- link to a family -->
-          <li><strong>NEXT:</strong> Select the family as your <i>friend</i> on our search page. You can do that here: <%= link_to 'Find Friend', family_people_search_path %></li>
+          <li><strong>THEN:</strong> Connect with your friends on our search page. (Make sure you know the family name they used.) <%= link_to 'Find Friend', family_people_search_path %></li>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-8 family-person-directions">
+          <!-- link to a family -->
+          <li><strong>DON'T FORGET THE SITTERS:</strong> Search for your sitter by their email address and connect! <%= link_to 'Find Your Sitters', family_people_search_path %></li>
       </div>
     </div>
   </div>
@@ -76,8 +74,8 @@
       <div class="row">
         <div class="col-sm-12">
           <center><h2>My Profile</h2></center>
-          <center><%= link_to 'Edit', edit_person_path(current_person) %></center>
-          <center><%= link_to 'Delete Profile', edit_person_path(current_person) %></center>
+          <%= link_to 'Edit', edit_person_path(current_person) %>
+          <%= link_to 'Delete Profile', edit_person_path(current_person) %>
         </div>
       </div>
       <div class="row">
