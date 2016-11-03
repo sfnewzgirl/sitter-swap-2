@@ -27,18 +27,22 @@
     <div class="row">
       <div class="col-sm-12">
         <!-- list family friends -->
-        <h3><strong>Family Friends</strong></h3>
-        <p>Connect with your friends' families and find more sitters.</p>
+        <h3><strong>My Family</strong></h3>
         <ul>
           <% @person.families.each do |family| %>
             <li><strong>Family Name: </strong><%= link_to family.family_name, '/families/' + family.id.to_s %></li>
           <% end %>
         </ul>
+        <h3><strong>My Family</strong></h3>
+        <p>Connect with your friends' families and find more sitters.</p>
+        <% @person.families.each do |family| %>
+        <% end %>
         <h3><strong>My Sitters</strong></h3>
         <ul>
           <% @person.families.each do |family| %>
-            <% family.family_people.select{ |person| person.role == "sitters"} %>
-            <li><%= link_to @person.first_name + " " + @person.last_name %></li>
+            <li><% family.family_people.select{ |person| person.role == "sitters" } %>
+              <% link_to @person.first_name + " " + @person.last_name %>
+            </li>
           <% end %>
         </ul>
       </div>
@@ -81,8 +85,6 @@
       <div class="row">
         <div class="col-sm-12">
           <center><h2>My Profile</h2></center>
-          <%= link_to 'Edit', edit_person_path(@person) %>
-          <%= link_to 'Delete Profile', edit_person_path(@person) %>
         </div>
       </div>
       <div class="row">

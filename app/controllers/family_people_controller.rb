@@ -40,15 +40,16 @@ class FamilyPeopleController < ApplicationController
     fams = FamilyPerson.select{ |fp| fp.role == "caregivers" && fp.person_id == current_person.id }
     puts 'FAMS'
     if fams
-      puts 'FAMS-FOUND'
       puts fams
-      @family_person.family_id = fams[0].id
+      @family_person.family_id = fams[0].family_id
     end
-    puts 'FAMILY-ID'
+    puts 'FAMILY', @family_person.person_id, @family_person.family_id, @family_person.role
+    cur_fams = FamilyPerson.select{ |fp| fp.role == @family_person.role && fp.person_id == @family_person.person_id && fp.family_id == @family_person.family_id }
+    puts cur_fams
 
     if @family_person.save
       puts 'SAVE-SUCCEEDED'
-      flash[:notice] = "Your family has been confirmed."
+      flash[:notice] = "Your sitter has been confirmed."
       flash[:color] = "success"
       redirect_to '/people/' + current_person.id.to_s
     else
