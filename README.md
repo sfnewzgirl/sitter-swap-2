@@ -9,14 +9,21 @@ SitterSwap connects families with babysitters through referrals from friends. Fa
 
 Live Link:
 GitHub: https://github.com/sfnewzgirl/sitter-swap-2
-Trello: https://trello.com/b/Q6C300j1/project-3-sitterswap
+Trello (user stories): https://trello.com/b/Q6C300j1/project-3-sitterswap
 
 ### Tech Stack
 * HTML, SASS, Ruby on Rails
 * Heroku
 
+### Installation
+
+SitterSwap is a web-based app and requires no installation steps.
+
 ### Challenges
 
+The biggest challenge of this project were the model relationships. I had Person (or user if you will), Family and FamilyPeople. 
+
+![alt text](http://i.imgur.com/mi2G5Ng.jpg?1)
 
 
 
