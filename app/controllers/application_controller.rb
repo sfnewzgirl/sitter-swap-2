@@ -10,6 +10,8 @@ class ApplicationController < ActionController::Base
     @current_person ||= Person.find_by_id(session[:id])
   end
 
+  helper_method :current_person
+
   def logout
     @current_person = session[:id] = nil
   end

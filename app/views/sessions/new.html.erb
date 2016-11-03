@@ -17,8 +17,14 @@
         <%= form_for @person, url: '/sessions' do |f| %>
         <p>Email</p>
         <%= f.email_field :email, placeholder: 'Email'%>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
         <p>Password</p>
         <%= f.password_field :password, placeholder: 'Password' %>
+      </div>
+    </div>
         <%= f.submit 'Submit', class: 'btn btn-default'%>
       </div>
     </div>

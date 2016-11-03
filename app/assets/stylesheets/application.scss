@@ -11,7 +11,7 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require bootstrap
+ *= require bootstrap-3.3.7.min
  *= require_tree .
  *= require_self
  */
@@ -121,8 +121,11 @@ body {
 }
 
 #log-in-container {
-  background-color: $limegreen;
-  color: white;
+
+  color: $forestgreen;
+  max-width: 25%;
+  margin-left: 50%;
+  margin-right: 25%;
   display: inline-block;
   border-radius: .5em;
 }
