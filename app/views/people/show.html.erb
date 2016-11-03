@@ -21,29 +21,22 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-sm-12">
-        <center><h2>My Connections</h2></center>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-12">
         <!-- list family friends -->
-        <h3><strong>My Families</strong></h3>
+        <h3><strong>My Family</strong></h3>
         <ul>
           <% Family.joins(:family_people).where('family_people.person_id': @person.id).where('family_people.role': "caregivers").each do |family| %>
             <li><strong>Family Name: </strong><%= link_to family.family_name, '/families/' + family.id.to_s %></li>
           <% end %>
         </ul>
-        <h3><strong>My Family</strong></h3>
+        <h3><strong>My Friends</strong></h3>
         <p>Connect with your friends' families and find more sitters.</p>
-        <% @person.families.each do |family| %>
-        <% end %>
+          <% Family.joins(:family_people).where('family_people.person_id': @person.id).where('family_people.role': "friends").each do |family| %>
+            <li><strong>Family: </strong><%= link_to family.family_name, '/families/' + family.id.to_s %></li>
+          <% end %>
         <h3><strong>My Sitters</strong></h3>
         <ul>
-          <% @person.families.each do |family| %>
-            <li><%= family.family_people.select{ |person| person.role == "sitters" } %>
-              <li>
-
-            </li>
+          <% Person.joins(:family_people).where('family_people.person_id': @person.id).where('family_people.role': "sitters").each do |person| %>
+            <li><strong>Sitter: </strong><%= link_to person.first_name, '/people/' + person.id.to_s %></li>
           <% end %>
         </ul>
       </div>
