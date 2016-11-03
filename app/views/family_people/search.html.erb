@@ -4,9 +4,9 @@
       <h1>SitterSwap</h1>
     </div>
     <div class="col-lg-6 col-sm-12" id="welcome-header-links">
-      <!-- TODO add links to profile sections -->
       <%= link_to 'Log Out', logout_path %>
       <%= link_to 'About', about_path %>
+      <%= link_to 'Profile', person_path(current_person) %>
     </div>
   </div>
 </div>
@@ -29,7 +29,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-12" id="search-bar">
+    <div class="col-sm-12 search-bar">
       <%= form_tag("/family_people/search", method: "get") do %>
         <%= label_tag(:q, "Search for a family") %>
         <%= text_field_tag(:q) %>
@@ -62,7 +62,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-12" id="search-bar">
+    <div class="col-sm-12 search-bar">
       <%= form_tag("/family_people/search", method: "get") do %>
         <%= label_tag(:q, "Search for a person") %>
         <%= text_field_tag(:q) %>
