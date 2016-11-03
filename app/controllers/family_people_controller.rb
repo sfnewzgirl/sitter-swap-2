@@ -23,11 +23,9 @@ class FamilyPeopleController < ApplicationController
 
       if @family_person.save
         flash[:notice] = "Your family has been confirmed."
-        flash[:color] = "success"
         redirect_to '/people/' + current_person.id.to_s
       else
         flash[:error] = "Something went wrong. Please try again."
-        flash[:color] = "failure"
         redirect_to family_people_search_path
       end
   end
