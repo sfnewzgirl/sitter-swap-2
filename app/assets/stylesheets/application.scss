@@ -28,7 +28,7 @@ $beige: #d4c3c3;
   	background-color: $limegreen;
     color: white;
     display: inline-block;
-    margin: 1em;
+    margin: .75em;
     padding: 1em;
     font-size: 1.25em;
     font-weight: bold;
@@ -95,6 +95,7 @@ body {
     margin: 1em;
     font-size: 2em;
     font-weight: bold;
+    box-shadow: 1px 1px 2px $forestgreen;
   }
   p {
     font-size: 1.5em;
