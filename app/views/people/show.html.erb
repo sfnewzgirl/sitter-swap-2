@@ -34,6 +34,13 @@
             <li><strong>Family Name: </strong><%= link_to family.family_name, '/families/' + family.id.to_s %></li>
           <% end %>
         </ul>
+        <h3><strong>My Sitters</strong></h3>
+        <ul>
+          <% current_person.families.each do |family| %>
+            <% family.family_people.select{ |person| person.role == "sitters"} %>
+            <li><%= link_to @person.first_name + " " + @person.last_name %></li>
+          <% end %>
+        </ul>
       </div>
     </div>
   </div>
