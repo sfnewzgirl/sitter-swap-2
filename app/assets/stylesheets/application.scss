@@ -36,7 +36,7 @@ $beige: #d4c3c3;
 }
 
 @mixin blue-box-div {
-  div {
+  div, h1 {
     background-color: $blue;
     color: white;
     display: inline-block;
@@ -45,6 +45,7 @@ $beige: #d4c3c3;
     font-size: 1.25em;
     font-weight: bold;
     border-radius: .5em;
+    box-shadow: 1px 1px 2px $forestgreen;
   }
 }
 
@@ -62,7 +63,9 @@ $beige: #d4c3c3;
 @mixin beige-btn {
   background-color: $beige;
   color: $forestgreen;
-  padding: .5em;
+  padding: auto;
+  margin: 1em;
+  box-shadow: 1px 1px 2px $forestgreen;
 }
 
 body {
@@ -121,11 +124,9 @@ body {
 }
 
 #log-in-container {
-
   color: $forestgreen;
   max-width: 25%;
-  margin-left: 50%;
-  margin-right: 25%;
+  margin-left: 40%;
   display: inline-block;
   border-radius: .5em;
 }
@@ -165,4 +166,5 @@ body {
 
 .search-page-header { @include blue-box-ul-li; }
 .user-welcome {@include blue-box-div; }
-.btn-default {@include beige-btn; }
+.btn-login {@include beige-btn; }
+.log-in-header { @include blue-box-div; }

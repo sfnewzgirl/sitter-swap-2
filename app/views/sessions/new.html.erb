@@ -11,21 +11,15 @@
   </div>
 </div>
 <div class="container-fluid" id="log-in-container">
-  <h1>Log In</h1>
+  <div class="log-in-header login-header-title"><h1>Log In</h1></div>
     <div class="row">
-      <div class="col-sm-12">
-        <%= form_for @person, url: '/sessions' do |f| %>
-        <p>Email</p>
-        <%= f.email_field :email, placeholder: 'Email'%>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-12">
-        <p>Password</p>
-        <%= f.password_field :password, placeholder: 'Password' %>
-      </div>
-    </div>
-        <%= f.submit 'Submit', class: 'btn btn-default'%>
+      <%= form_for @person, url: '/sessions' do |f| %>
+      <div class="log-in-header"><center><h1>Email</h1></center></div>
+      <%= f.email_field :email, placeholder: 'Email'%>
+      <div class="log-in-header"><center><h1>Password</h1></center></div>
+      <%= f.password_field :password, placeholder: 'Password' %>
+      <div class="row">
+        <center><%= f.submit 'Submit', class: 'btn btn-default btn-login'%></center>
       </div>
     </div>
   <% end %>
