@@ -33,31 +33,22 @@ class FamilyPeopleController < ApplicationController
   end
 
   def sitter_create
-    #@sitters = Person.find_by(params[:id])
     @family_person = FamilyPerson.new(family_person_sitter_create_params)
-    puts 'FAMILY-PERSON'
-
     fams = FamilyPerson.select{ |fp| fp.role == "caregivers" && fp.person_id == current_person.id }
-    puts 'FAMS'
+
     if fams
-      puts fams
       @family_person.family_id = fams[0].family_id
     end
-    puts 'FAMILY', @family_person.person_id, @family_person.family_id, @family_person.role
     cur_fams = FamilyPerson.select{ |fp| fp.role == @family_person.role && fp.person_id == @family_person.person_id && fp.family_id == @family_person.family_id }
-    puts cur_fams
 
     if @family_person.save
-      puts 'SAVE-SUCCEEDED'
       flash[:notice] = "Your sitter has been confirmed."
       flash[:color] = "success"
       redirect_to '/people/' + current_person.id.to_s
     else
-      puts 'SAVE-FAILED'
       flash[:error] = "Something went wrong. Please try again."
       flash[:color] = "failure"
-      #redirect_to family_people_search_path
-      redirect_to "http://www.example.com/"
+      redirect_to family_people_search
     end
   end
 
