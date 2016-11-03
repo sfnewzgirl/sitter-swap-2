@@ -10,12 +10,16 @@
     </div>
   </div>
 </div>
-<h1>Log In</h1>
-<div class="container-fluid">
-  <%= form_for @person, url: '/sessions' do |f| %>
-    <div class="row" id="log-in-container">
+<div class="container-fluid" id="log-in-container">
+  <h1>Log In</h1>
+    <div class="row">
       <div class="col-sm-12">
-        <p>Email</p><%= f.email_field :email, placeholder: 'Email'%> <p>Password</p><%= f.password_field :password, placeholder: 'Password' %> <%= f.submit 'Submit', class: 'btn btn-default'%></div>
+        <%= form_for @person, url: '/sessions' do |f| %>
+        <p>Email</p>
+        <%= f.email_field :email, placeholder: 'Email'%>
+        <p>Password</p>
+        <%= f.password_field :password, placeholder: 'Password' %>
+        <%= f.submit 'Submit', class: 'btn btn-default'%>
       </div>
     </div>
   <% end %>
