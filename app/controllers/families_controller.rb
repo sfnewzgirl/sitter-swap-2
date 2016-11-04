@@ -8,7 +8,7 @@ class FamiliesController < ApplicationController
   def show
     family_id = Family.find_by_id(params[:id])
     @family_people = Person.find_by(params[:family_id])
-    @person = Person.find_by_id(current_person.id)
+    @person = Person.find_by_id(current_person)
   end
 
   def new
