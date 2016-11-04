@@ -28,6 +28,7 @@ class PeopleController < ApplicationController
     @person = Person.new(person_params)
 
       if @person.save
+        login(@person)
         flash[:notice] = 'Your profile was successfully created.'
         redirect_to @person
       else
