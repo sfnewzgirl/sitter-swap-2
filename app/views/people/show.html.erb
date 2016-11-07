@@ -23,17 +23,17 @@
     <div class="row">
       <div class="col-lg-12">
         <!-- list family friends -->
-        <h3><strong>My Family</strong></h3>
-        <ul>
-          <% Family.joins(:family_people).where('family_people.person_id': @person.id).where('family_people.role': "caregivers").each do |family| %>
-            <li><strong>Family Name: </strong><%= link_to family.family_name, '/families/' + family.id.to_s %></li>
-          <% end %>
-        </ul>
-        <div class="col-lg-4 col-sm-12 family-person-directions">
+        <div class"col-lg-6 col-sm-12">
+          <h3><strong>My Family</strong></h3>
+          <ul>
+            <% Family.joins(:family_people).where('family_people.person_id': @person.id).where('family_people.role': "caregivers").each do |family| %>
+              <li><strong>Family Name: </strong><%= link_to family.family_name, '/families/' + family.id.to_s %></li>
+            <% end %>
+          </ul>
+        </div>
+        <div class="col-lg-6 col-sm-12 family-person-directions">
           <!-- create new family -->
           <li><strong>FIRST:</strong> Create a profile for your family. Start here: <%= link_to 'New Family', new_family_path %></li>
-        </div>
-          <div class="col-lg-4 col-sm-12 family-person-directions">
           <!-- link to a family -->
           <li><strong>NEXT:</strong> Make sure you link to your new family profile. Click here: <%= link_to 'Select Family', family_people_search_path %></li>
         </div>
@@ -52,14 +52,14 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-lg-12">
-        <h3><strong>My Friends</strong></h3>
-          <% Family.joins(:family_people).where('family_people.person_id': @person.id).where('family_people.role': "friends").each do |family| %>
-            <li><strong>Family: </strong><%= link_to family.family_name, '/families/' + family.id.to_s %></li>
-          <% end %>
-        <div class="row">
-          <div class="col-lg-4 col-sm-12 family-person-directions">
-            <li><strong>THEN:</strong> Connect with your friends on our search page. (Make sure you know the family name they used.) <%= link_to 'Find Friend', family_people_search_path %></li>
-          </div>
+        <div class="col-lg-6 col-sm-12">
+          <h3><strong>My Friends</strong></h3>
+            <% Family.joins(:family_people).where('family_people.person_id': @person.id).where('family_people.role': "friends").each do |family| %>
+              <li><strong>Family: </strong><%= link_to family.family_name, '/families/' + family.id.to_s %></li>
+            <% end %>
+        </div>
+        <div class="col-lg-6 col-sm-12 family-person-directions">
+          <li><strong>THEN:</strong> Connect with your friends on our search page. (Make sure you know the family name they used.) <%= link_to 'Find Friend', family_people_search_path %></li>
         </div>
       </div>
     </div>
@@ -69,16 +69,16 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-lg-12">
-        <h3><strong>My Sitters</strong></h3>
-        <ul>
-          <% Person.joins(:family_people).where('family_people.family_id': @person_family_id).where('family_people.role': "sitters").each do |person| %>
-            <li><strong>Sitter: </strong><%= link_to person.first_name, '/people/' + person.id.to_s %></li>
-          <% end %>
-        </ul>
-        <div class="row">
-          <div class="col-lg-4 col-sm-12 family-person-directions">
-            <li><strong>DON'T FORGET THE SITTERS:</strong> Search for your sitter by their email address and connect! <%= link_to 'Find Your Sitters', family_people_search_path %></li>
-          </div>
+        <div class="col-lg-6 col-sm-12">
+          <h3><strong>My Sitters</strong></h3>
+          <ul>
+            <% Person.joins(:family_people).where('family_people.family_id': @person_family_id).where('family_people.role': "sitters").each do |person| %>
+              <li><strong>Sitter: </strong><%= link_to person.first_name, '/people/' + person.id.to_s %></li>
+            <% end %>
+          </ul>
+        </div>
+        <div class="col-lg-6 col-sm-12 family-person-directions">
+          <li><strong>DON'T FORGET THE SITTERS:</strong> Search for your sitter by their email address and connect! <%= link_to 'Find Your Sitters', family_people_search_path %></li>
         </div>
       </div>
     </div>
