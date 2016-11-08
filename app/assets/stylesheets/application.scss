@@ -164,6 +164,7 @@ body {
 .profile-relationships {
   li {
     font-size: 1.5em;
+    margin: 0;
   }
 }
 
@@ -182,12 +183,31 @@ body {
   -ms-user-select: none;
 }
 
+#profile-page-link {
+  a {
+  	background-color: $beige;
+    color: $forestgreen;
+    display: inline-block;
+    margin: .75em;
+    padding: 1em;
+    font-size: 1.25em;
+    font-weight: bold;
+    border-radius: .5em;
+    box-shadow: 1px 1px 2px $forestgreen;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+  }
+}
+
 #welcome-header-links { @include lime-green-box-links; }
 .log-out-button {@include lime-green-box-links; }
 .search-page-header { @include blue-box-ul-li; }
 .user-welcome {@include blue-box-div; }
 .btn-login {@include beige-btn; }
-.log-in-header { @include blue-box-div; }
+.log-in-header { @include blue-box-div;
+  display: block;
+}
 .search-bar { @include grey-box;
   padding-left: 3em;
   display: inline-block;

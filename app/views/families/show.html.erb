@@ -11,26 +11,35 @@
     </div>
   </div>
 </div>
-<div class="container-fluid form-container">
-  <div class="log-in-header login-header-title">
-    <h1>Family Profile</h1>
-    <p id="notice"><%= notice %></p>
-  </div>
-</div>
 <div class="container-fluid">
   <div class="row">
     <div class="col-lg-12">
-      <p>
-        <strong>Family name:</strong>
-        <%= @family.family_name %>
-      </p>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-lg-12">
-      <% @family.people.each do |person| %>
-        <p><strong>Name: </strong><%= person.first_name + " " + person.last_name %>  <%= link_to 'Profile', '/people/' + person.id.to_s %></p>
-      <% end %>
+      <div class="col-lg-6">
+        <center>
+          <div class="log-in-header">
+            <h1>Family Details</h1>
+            <p id="notice"><%= notice %></p>
+          </div>
+          <p>
+            <strong>Family name:</strong>
+            <%= @family.family_name %>
+          </p>
+          <div id="profile-page-link">
+            <%= link_to 'Profile', person_path(current_person) %>
+          </div>
+        </center>
+      </div>
+      <div class="col-lg-6">
+        <center>
+          <div class="log-in-header">
+            <h1>Relationships</h1>
+            <p id="notice"><%= notice %></p>
+          </div>
+          <% @family.people.each do |person| %>
+            <p><strong>Name: </strong><%= link_to person.first_name + " " + person.last_name, '/people/' + person.id.to_s %></p>
+          <% end %>
+        </center>
+      </div>
     </div>
   </div>
 </div>

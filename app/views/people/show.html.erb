@@ -48,7 +48,7 @@
           <h3><strong>My Sitters</strong></h3>
           <ul class="profile-relationships">
             <% Person.joins(:family_people).where('family_people.family_id': @person_family_id).where('family_people.role': "sitters").each do |person| %>
-              <li><strong>Sitter: </strong><%= link_to person.first_name, '/people/' + person.id.to_s %> | <%= mail_to person.email do %><strong>Email:</strong> <span><%= person.email %></span>
+              <li><strong>Sitter: </strong><%= link_to person.first_name, '/people/' + person.id.to_s %> | <%= mail_to person.email do %><strong>Email:</strong> <span><%= person.email %></span></li>
               <% end %>
             <% end %>
           </ul>
