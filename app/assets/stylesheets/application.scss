@@ -148,10 +148,6 @@ body {
   border-radius: .5em;
 }
 
-.log-in-row {
-  margin: auto;
-}
-
 .about-image {
   max-width: 100%;
 }
@@ -211,6 +207,8 @@ body {
 .btn-login {@include beige-btn; }
 .log-in-header { @include blue-box-div;
   display: block;
+  margin: auto;
+  max-width: 100%;
 }
 .search-bar { @include grey-box;
   padding-left: 3em;
