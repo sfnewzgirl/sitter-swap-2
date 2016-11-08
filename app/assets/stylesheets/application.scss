@@ -161,11 +161,18 @@ body {
   border-radius: .5em;
 }
 
+.profile-relationships {
+  li {
+    font-size: 1.5em;
+  }
+}
+
 .family-person-directions {
+  float: right;
   background-color: $limegreen;
   color: white;
   display: inline-block;
-  margin: 2em;
+  margin: .25em;
   padding: .25em;
   font-size: 1.25em;
   font-weight: bold;
