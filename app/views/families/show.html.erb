@@ -24,6 +24,10 @@
             <strong>Family name:</strong>
             <%= @family.family_name %>
           </p>
+          <p><strong>Parents:</strong></p>
+            <% Person.joins(:family_people).where('family_people.family_id': @family.id).where('family_people.role': "caregivers").each do |person| %>
+              <li><strong>Name: </strong><%=link_to person.first_name + " " + person.last_name, '/people/' + person.id.to_s %></li>
+            <% end %>
           <div id="profile-page-link">
             <%= link_to 'Profile', person_path(current_person) %>
           </div>
