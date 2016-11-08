@@ -32,12 +32,12 @@
       <div class="col-lg-6">
         <center>
           <div class="log-in-header">
-            <h1>Relationships</h1>
+            <h1>Family Sitters</h1>
             <p id="notice"><%= notice %></p>
           </div>
-          <% @family.people.each do |person| %>
-            <p><strong>Name: </strong><%= link_to person.first_name + " " + person.last_name, '/people/' + person.id.to_s %></p>
-          <% end %>
+          <% Person.joins(:family_people).where('family_people.family_id': @family.id).where('family_people.role': "sitters").each do |person| %>
+            <li><strong>Name: </strong><%=link_to person.first_name + " " + person.last_name, '/people/' + person.id.to_s %></li>
+            <% end %>
         </center>
       </div>
     </div>
