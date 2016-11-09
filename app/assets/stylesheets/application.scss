@@ -203,7 +203,9 @@ body {
   }
 }
 
-
+.small-header {
+  font-size: .5em;
+}
 
 #welcome-header-links { @include lime-green-box-links; }
 .log-out-button {@include lime-green-box-links; }
@@ -222,3 +224,14 @@ body {
 }
 .btn-search{ @include beige-btn; }
 .beige-header{ @include beige-btn; }
+.search-tagline{
+  background-color: $blue;
+  color: white;
+  display: inline-block;
+  margin: 1em;
+  padding: .5em;
+  font-size: 1.25em;
+  font-weight: bold;
+  border-radius: .5em;
+  box-shadow: 1px 1px 2px $forestgreen;
+ }
