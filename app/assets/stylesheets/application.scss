@@ -97,6 +97,10 @@ body {
     font-weight: bold;
     box-shadow: 1px 1px 2px $forestgreen;
   }
+  h3 {
+    padding: .5em;
+    margin: .5em;
+  }
   p {
     font-size: 1.5em;
     margin: 1.5em;
@@ -176,6 +180,7 @@ body {
   font-size: 1.25em;
   font-weight: bold;
   border-radius: .5em;
+  box-shadow: 2px 2px 3px $forestgreen;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -216,3 +221,4 @@ body {
   max-width: 50%;
 }
 .btn-search{ @include beige-btn; }
+.beige-header{ @include beige-btn; }

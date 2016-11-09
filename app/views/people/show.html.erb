@@ -18,12 +18,14 @@
     </div>
   </div>
 </div>
-<section class="clearfix">
+<section>
   <div class="container-fluid">
     <div class="row">
       <div class="col-lg-12">
-        <div class"col-lg-6 col-sm-12">
+        <div class="beige-header">
           <h3><strong>My Family</strong></h3>
+        </div>
+        <div class"col-lg-6 col-sm-12">
           <ul class="profile-relationships">
             <% Family.joins(:family_people).where('family_people.person_id': @person.id).where('family_people.role': "caregivers").each do |family| %>
               <li><strong>Family Name: </strong><%= link_to family.family_name, '/families/' + family.id.to_s %></li>
@@ -44,8 +46,10 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-lg-12">
-        <div class="col-lg-6 col-sm-12">
+        <div class="beige-header">
           <h3><strong>My Sitters</strong></h3>
+        </div>
+        <div class="col-lg-6 col-sm-12">
           <ul class="profile-relationships">
             <% Person.joins(:family_people).where('family_people.family_id': @person_family_id).where('family_people.role': "sitters").each do |person| %>
               <li><strong>Sitter: </strong><%= link_to person.first_name, '/people/' + person.id.to_s %> | <%= mail_to person.email do %><strong>Email:</strong> <span><%= person.email %></span></li>
@@ -65,8 +69,10 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-lg-12">
-        <div class="col-lg-6 col-sm-12">
+        <div class="beige-header">
           <h3><strong>My Friends</strong></h3>
+        </div>
+        <div class="col-lg-6 col-sm-12">
             <ul class="profile-relationships">
               <% Family.joins(:family_people).where('family_people.person_id': @person.id).where('family_people.role': "friends").each do |family| %>
                 <li><strong>Family: </strong><%= link_to family.family_name, '/families/' + family.id.to_s %></li>
